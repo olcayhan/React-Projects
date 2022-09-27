@@ -2,19 +2,20 @@ import { useState, useRef, useEffect } from "react"
 import { v4 as uuidv4 } from 'uuid';
 import WordList from "./components/WordList";
 
-const LOCAL_STORAGE_KEY = "Word.app"
+const LOCAL_STORAGE_KEY = "Word.app" // don't change if you want to keep your data
 export default function App() {
 
     const handleTurkish = useRef()
     const handleEnglish = useRef()
     const [words, setWord] = useState([])
 
-    
+
     useEffect(()=>{
-        const storedData = localStorage.getItem(JSON.parse(LOCAL_STORAGE_KEY))
+        const storedData = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY))
         if (storedData) setWord(storedData)
     },[])
 
+    
     useEffect(()=>{
         localStorage.setItem(LOCAL_STORAGE_KEY,JSON.stringify(words))
     },[words])
