@@ -1,60 +1,44 @@
-import { useState, useRef, useEffect } from "react"
-import { v4 as uuidv4 } from 'uuid';
+import { useState ,useEffect} from "react"
 import WordList from "./components/WordList";
+import Learn from "./components/Learn";
+import Navbar from "./components/Navbar";
 
-const LOCAL_STORAGE_KEY = "Word.app" // don't change if you want to keep your data
+const LOCAL_STORAGE_KEY = "Word.app"
+
 export default function App() {
+ 
 
-    const handleTurkish = useRef()
-    const handleEnglish = useRef()
-    const [words, setWord] = useState([])
+    const [allWords, setAllWords] = useState([])
 
-
-    useEffect(()=>{
+    useEffect(() => {
         const storedData = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY))
-        if (storedData) setWord(storedData)
-    },[])
+        if (storedData) setAllWords(storedData)
+    }, [])
 
-    
-    useEffect(()=>{
-        localStorage.setItem(LOCAL_STORAGE_KEY,JSON.stringify(words))
-    },[words])
-
-   
-
-
-
-    function deleteWord(id) {
-
-        const newWords = words.filter((item) => item.id !== id);
-        setWord(newWords)
-        
+    let Component
+    switch (window.location.pathname) {
+        case "/":
+            Component = <WordList setAllWords={setAllWords} />
+            break
+        case "/words":
+            Component = <WordList setAllWords={setAllWords}/>
+            break
+        case "/learn":
+            Component = <Learn allWords = {allWords}/>
+            break
+        case "/test":
+            //Component = Test
+            break
     }
 
-    function addWord() {
-        const english = handleEnglish.current.value
-        const turkish = handleTurkish.current.value
-        setWord(prevWord => {
-            return [...prevWord, { id: uuidv4(), english: english, turkish: turkish, delete: false }]
-        })
 
-        handleEnglish.current.value = null
-        handleTurkish.current.value = null
-
-    }
 
     return (
         <div>
+            <Navbar />
 
-            <input type="text" ref={handleTurkish} placeholder="Turkish Word" />
-            <input type="text" ref={handleEnglish} placeholder="English Word" />
-            <button type="submit" onClick={addWord}> Add Word</button>
+            {Component}
 
-            <ol>
-                <p>Turkish - English</p>
-                <WordList words={words} deleteWord={deleteWord} />
-
-            </ol>
         </div>
     )
 }
