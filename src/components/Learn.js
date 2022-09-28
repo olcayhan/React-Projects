@@ -1,33 +1,33 @@
-import { useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import Questions from "./Questions";
 
 
 export default function Learn({ allWords }) {
 
+  const [wordId, setWordId] = useState(0)
+  const [question, setQuestion] = useState([...allWords])
+  let answer = useRef([...allWords])
 
+  if (wordId === question[0].id) {
+    setQuestion(question.filter((item) => item.id !== wordId))
+  }
 
-  let answerSort = [...allWords]
-  let questionSort = [...allWords]
+  useEffect(() => {
+    answer.current = answer.current.sort(() => Math.random() - 0.5)
+  }, [question])
 
-  answerSort.sort(() => Math.random() - 0.5)
-  questionSort.sort(() => Math.random() - 0.5)
-
-  const [wordId, setWordId] = useState()
-
-
-  console.log(wordId);
 
 
 
   return (
     <div>
       <h1>
-        {questionSort[0].turkish}
+        {question[0].turkish}
       </h1>
-      <Questions answerSort={answerSort[0]} setWordId={setWordId} />
-      <Questions answerSort={answerSort[1]} setWordId={setWordId} />
-      <Questions answerSort={answerSort[2]} setWordId={setWordId} />
-      <Questions answerSort={answerSort[3]} setWordId={setWordId} />
+      <Questions answer={answer.current[0]} setWordId={setWordId} />
+      <Questions answer={answer.current[1]} setWordId={setWordId} />
+      <Questions answer={answer.current[2]} setWordId={setWordId} />
+      <Questions answer={answer.current[3]} setWordId={setWordId} />
     </div>
   )
 }
