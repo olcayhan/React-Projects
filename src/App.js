@@ -24,6 +24,7 @@ export default function App() {
             Component = <WordList setAllWords={setAllWords}/>
             break
         case "/learn":
+            if(allWords.length == 0 ) return
             Component = <Learn allWords = {allWords}/>
             break
         case "/test":

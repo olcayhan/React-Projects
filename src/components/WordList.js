@@ -32,8 +32,6 @@ export default function WordList({setAllWords}) {
 
         const newWords = words.filter((item) => item.id !== id);
         setWord(newWords)
-     
-
     }
 
     function addWord() {
