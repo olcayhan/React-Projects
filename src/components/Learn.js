@@ -13,7 +13,7 @@ export default function Learn({ allWords }) {
   }
 
   useEffect(() => {
-    answer.current = answer.current.sort(() => Math.random() - 0.5)
+    return () => { answer.current = answer.current.sort(() => Math.random() - 0.5)  }
   }, [question])
 
 
