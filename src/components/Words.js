@@ -8,10 +8,10 @@ export function Words({ word, deleteWord }) {
 
 
     return (
-        <li>
-            <p>{word.turkish} </p>
-            <p>{word.english}</p>
-            <button type="submit" onClick={delWord}>Delete</button>
+        <li className='lists'>
+            <p className='word--turkish'>{word.turkish}</p>
+            <p className='word--english'> {word.english}</p>
+            <button type="submit" className='delBtn' onClick={delWord}>Delete</button>
             <hr />
         </li>
     )

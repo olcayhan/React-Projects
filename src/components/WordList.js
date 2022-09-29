@@ -54,13 +54,13 @@ export default function WordList({setAllWords}) {
     return (
 
 
-        <div>
-            <input type="text" ref={handleTurkish} placeholder="Turkish Word" />
-            <input type="text" ref={handleEnglish} placeholder="English Word" />
-            <button type="submit" onClick={addWord}> Add Word</button>
+        <div className="card--all">
+            <input  className="input--turkish" type="text" ref={handleTurkish} placeholder="Turkish Word" />
+            <input className="input--english" type="text" ref={handleEnglish} placeholder="English Word" />
+            <button className="addBtn" type="submit" onClick={addWord}> Add Word</button>
 
             <ol>
-                <p>Turkish - English</p>
+                <p className="header--words"><span>Turkish</span>-<span>English</span></p>
                 {words.map(word => {
                     return <Words word={word} deleteWord={deleteWord} />
                     

@@ -1,0 +1,96 @@
+body{
+    background-color: #400D51;
+    font-family: "Inter Tight", sans-serif;
+}
+
+.lists {
+    font-size: 15px;
+    display: flex;
+    flex-direction: row;
+    width: 500px;
+    background-color: #937DC2;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+
+.delBtn {
+    background-color: #5C2E7E;
+    color: #fff;
+    margin: 10px 10px;
+    width: 70px;
+    height: 30px;
+    cursor:pointer;
+    border: none;
+    border-radius: 10px;
+    
+
+}
+
+.word--turkish {
+    font-size: 25px;
+    margin:auto;
+    width: 80px;
+    height: 40px;
+    text-align: center;
+    border-radius: 10px;
+    background-color: #C689C6;
+}
+.word--english {
+    font-size: 25px;
+    margin:auto;
+    width: 80px;
+    height: 40px;
+    text-align: center;
+    border-radius: 10px;
+    background-color: #C689C6;
+}
+
+.header--words{
+    font-size: 25px;
+    margin-left: 8px;
+    color: #937DC2;
+    width: 360px;
+    background-color: #FFE6F7;
+    border-radius: 10px;
+}
+.header--words span{
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+.card--all{
+   
+    background-color: #5C2E7E;
+    width: 600px;
+    margin: 50px 500px;
+    border-radius: 15px;
+}
+.input--turkish{
+    width: 200px;
+    margin: 20px 20px;
+    height: 55px;
+    border: solid;
+    border-radius: 20px;
+    text-align: center;
+}
+.input--english{
+    width: 200px;
+    margin: 20px 20px;
+    height: 55px;
+    border: solid;
+    border-radius: 20px;
+    text-align: center;
+    
+}
+
+.addBtn{
+    border-radius: 10px;
+    width: 90px;
+    height: 50px;
+    border: solid;
+    border-width: 1px;
+    color: #fff;
+    background-color: #400D51;
+    cursor: pointer;
+
+}
