@@ -2,6 +2,7 @@ import { useState ,useEffect} from "react"
 import WordList from "./components/WordList";
 import Learn from "./components/Learn";
 import Navbar from "./components/Navbar";
+import Interface from "./components/Interface";
 
 const LOCAL_STORAGE_KEY = "Word.app"
 
@@ -15,24 +16,23 @@ export default function App() {
         if (storedData) setAllWords(storedData)
     }, [])
 
+
     let Component
     switch (window.location.pathname) {
         case "/":
-            Component = <WordList setAllWords={setAllWords} />
+            Component = <Interface setAllWords={setAllWords} />
             break
         case "/words":
             Component = <WordList setAllWords={setAllWords}/>
             break
         case "/learn":
-            if(allWords.length == 0 ) return
+            if(allWords.length === 0 ) return
             Component = <Learn allWords = {allWords}/>
             break
         case "/test":
             //Component = Test
             break
     }
-
-
 
     return (
         <div>

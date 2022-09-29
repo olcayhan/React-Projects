@@ -61,6 +61,8 @@ export default function WordList({setAllWords}) {
 
             <ol>
                 <p className="header--words"><span>Turkish</span>-<span>English</span></p>
+
+                
                 {words.map(word => {
                     return <Words word={word} deleteWord={deleteWord} />
                     

@@ -1,5 +1,5 @@
-body{
-    background-color: #400D51;
+body {
+    background-color: #fff;
     font-family: "Inter Tight", sans-serif;
 }
 
@@ -19,25 +19,16 @@ body{
     margin: 10px 10px;
     width: 70px;
     height: 30px;
-    cursor:pointer;
+    cursor: pointer;
     border: none;
     border-radius: 10px;
-    
+
 
 }
 
 .word--turkish {
     font-size: 25px;
-    margin:auto;
-    width: 80px;
-    height: 40px;
-    text-align: center;
-    border-radius: 10px;
-    background-color: #C689C6;
-}
-.word--english {
-    font-size: 25px;
-    margin:auto;
+    margin: auto;
     width: 80px;
     height: 40px;
     text-align: center;
@@ -45,7 +36,17 @@ body{
     background-color: #C689C6;
 }
 
-.header--words{
+.word--english {
+    font-size: 25px;
+    margin: auto;
+    width: 80px;
+    height: 40px;
+    text-align: center;
+    border-radius: 10px;
+    background-color: #C689C6;
+}
+
+.header--words {
     font-size: 25px;
     margin-left: 8px;
     color: #937DC2;
@@ -53,37 +54,40 @@ body{
     background-color: #FFE6F7;
     border-radius: 10px;
 }
-.header--words span{
+
+.header--words span {
     margin-left: 40px;
     margin-right: 40px;
 }
 
-.card--all{
-   
+.card--all {
+
     background-color: #5C2E7E;
     width: 600px;
     margin: 50px 500px;
     border-radius: 15px;
 }
-.input--turkish{
+
+.input--turkish {
     width: 200px;
     margin: 20px 20px;
     height: 55px;
     border: solid;
     border-radius: 20px;
     text-align: center;
-}
-.input--english{
-    width: 200px;
-    margin: 20px 20px;
-    height: 55px;
-    border: solid;
-    border-radius: 20px;
-    text-align: center;
-    
 }
 
-.addBtn{
+.input--english {
+    width: 200px;
+    margin: 20px 20px;
+    height: 55px;
+    border: solid;
+    border-radius: 20px;
+    text-align: center;
+
+}
+
+.addBtn {
     border-radius: 10px;
     width: 90px;
     height: 50px;
@@ -92,5 +96,24 @@ body{
     color: #fff;
     background-color: #400D51;
     cursor: pointer;
+
+}
+
+.sets {
+    margin: 50px 20px;
+    display: flex;
+    flex-direction: row;
+}
+
+.sets button {
+    cursor: pointer;
+    margin: 20px;
+}
+
+#cards {
+    width: 200px;
+    height: 80px;
+    margin-left: 20px;
+    text-align: center;
 
 }

@@ -30,7 +30,7 @@ export default function Learn({ allWords }) {
         alert("wrong")
       }
     }
-  }, [correctAnswer])
+  }, [question,wordId])
 
 
 
