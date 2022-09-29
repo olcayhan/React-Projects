@@ -7,8 +7,6 @@ const LOCAL_STORAGE_KEY = "Word.app" // don't change if you want to keep your da
 
 export default function WordList({setAllWords}) {
 
-    
-
     const handleTurkish = useRef()
     const handleEnglish = useRef()
     const [words, setWord] = useState([])

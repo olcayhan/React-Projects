@@ -3,7 +3,8 @@ import WordList from './WordList'
 import CardAdd from './CardAdd'
 import { v4 as uuidv4 } from 'uuid';
 
-export default function Interface({ setAllWords }) {
+export default function Interface() {
+    
 
     const cardNames = useRef()
 
