@@ -1,19 +1,23 @@
-import React, { useRef } from 'react'
+import React from 'react'
 import WordList from './WordList';
 
 export default function CardAdd({ cardSp }) {
-    let count = 0
-    function routeWord() {
-        count++
-        window.location.pathname = `/cards${count}`
+
+    let temp;
+    function wordList(e) {
+        console.log(e.target.name);
+        temp = <div>
+            <WordList />
+        </div>
     }
 
 
     return (
         <div className="card" id='cards'>
-            <button onClick={routeWord}>{cardSp.nameCard}</button>
+            <button onClick={wordList} name={cardSp.nameCard}>{cardSp.nameCard}</button>
+            {temp}
         </div>
-
-        
     )
+
+
 }

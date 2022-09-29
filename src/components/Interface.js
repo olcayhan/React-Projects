@@ -1,20 +1,19 @@
-import React, { useState, useRef } from 'react'
-import WordList from './WordList'
+import React, { useState, useRef, useEffect } from 'react'
 import CardAdd from './CardAdd'
 import { v4 as uuidv4 } from 'uuid';
 
 export default function Interface() {
-    
 
+    const wordList = [{ id: 1, english: "hello", turkish: "merhaba" }]
     const cardNames = useRef()
 
     const [card, setCard] = useState([])
-    console.log(card);
+ 
 
     function addCard() {
         const name = cardNames.current.value
         if (name !== "") {
-            setCard(prevCard => [...prevCard, { id: uuidv4(), nameCard: name }])
+            setCard(prevCard => [...prevCard, { id: uuidv4(), nameCard: name, words: wordList }])
         }
         cardNames.current.value = null
     }
