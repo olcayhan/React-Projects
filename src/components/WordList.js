@@ -2,25 +2,26 @@ import { useState, useRef, useEffect } from "react"
 import { Words } from "./Words";
 import { v4 as uuidv4 } from 'uuid';
 
-//const LOCAL_STORAGE_KEY = "Word.app" // don't change if you want to keep your data
 
 
-export default function WordList() {
+
+export default function WordList({stored}) {
 
     const handleTurkish = useRef()
     const handleEnglish = useRef()
     const [words, setWord] = useState([])
     //setAllWords(words)
 
- /*    useEffect(() => {
-        const storedData = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY))
-        if (storedData) setWord(storedData)
-    }, [])
-
 
     useEffect(() => {
-        localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(words))
-    }, [words]) */
+        const storedData = JSON.parse(localStorage.getItem(stored))
+        if (storedData) setWord(storedData)
+    }, [stored])
+    
+
+    useEffect(() => {
+        localStorage.setItem(stored, JSON.stringify(words))
+    }, [words,stored])
 
 
 
@@ -48,6 +49,7 @@ export default function WordList() {
     }
 
 
+    if(words.length>5) return;
 
     return (
 

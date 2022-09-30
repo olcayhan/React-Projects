@@ -1,21 +1,30 @@
-import React from 'react'
-import WordList from './WordList';
+import React, { useRef } from 'react'
 
-export default function CardAdd({ cardSp }) {
+export default function CardAdd({ cardSp, deleteCard, count }) {
 
-    let temp;
-    function wordList(e) {
-        console.log(e.target.name);
-        temp = <div>
-            <WordList />
-        </div>
+
+    const name = useRef()
+    const edit = useRef()
+    function routesChange() {
+        window.location.pathname = `/set${count}`
+
+    }
+
+    function editName() {
+        name.current.innerHTML = edit.current.value
+    }
+    function deleteCards() {
+        deleteCard(cardSp.id);
     }
 
 
     return (
         <div className="card" id='cards'>
-            <button onClick={wordList} name={cardSp.nameCard}>{cardSp.nameCard}</button>
-            {temp}
+            <button onClick={routesChange} ref={name}>{cardSp.nameCard}</button>
+            <button type='submit' onClick={deleteCards} >Delete Card</button>
+            <input type="text" placeholder='editName' ref={edit} />
+            <button type="submit" onClick={editName}>Edit</button>
+
         </div>
     )
 
