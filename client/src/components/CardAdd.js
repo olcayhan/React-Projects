@@ -11,10 +11,10 @@ export default function CardAdd({ cardSp, deleteCard, count }) {
     }
 
     function editName() {
-        name.current.innerHTML = edit.current.value
+        if (edit.current.value !== "") name.current.innerHTML = edit.current.value
     }
     function deleteCards() {
-        deleteCard(cardSp.id);
+        deleteCard(cardSp);
     }
 
 

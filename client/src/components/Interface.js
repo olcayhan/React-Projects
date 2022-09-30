@@ -5,7 +5,7 @@ import { v4 as uuidv4 } from 'uuid';
 const LOCAL_STORAGE_KEY = "Card.app" // don't change if you want to keep your data
 
 
-export default function Interface() {
+export default function Interface({ storages }) {
 
     let count = 1;
     const cardNames = useRef()
@@ -24,10 +24,12 @@ export default function Interface() {
     }, [card])
 
 
-    function deleteCard(id) {
+    function deleteCard(cardSp) {
 
-        const newCard = card.filter((item) => item.id !== id);
+        const newCard = card.filter((item) => item.id !== cardSp.id);
         setCard(newCard)
+        console.log(newCard);
+        
     }
 
 
