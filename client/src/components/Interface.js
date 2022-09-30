@@ -11,12 +11,12 @@ export default function Interface({ storages }) {
     const cardNames = useRef()
 
     const [card, setCard] = useState([])
-
-
     useEffect(() => {
         const storedData = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY))
         if (storedData) setCard(storedData)
+
     }, [])
+
 
 
     useEffect(() => {
@@ -25,17 +25,21 @@ export default function Interface({ storages }) {
 
 
     function deleteCard(cardSp) {
-
-        const newCard = card.filter((item) => item.id !== cardSp.id);
-        setCard(newCard)
-        console.log(newCard);
-        
+        //const newCard = card.filter((item) => item.id !== cardSp.id);
+        let index = card.indexOf(cardSp)
+        card[index] = "a";
+        console.log(cardSp);
+        setCard(card)
+        localStorage.setItem(storages[index], JSON.stringify([]))
     }
 
 
+
     function addCard() {
+
         const name = cardNames.current.value
         if (name !== "" && card.length < 5) {
+
             setCard(prevCard => [...prevCard, { id: uuidv4(), nameCard: name }])
             cardNames.current.value = null
         }
@@ -61,8 +65,7 @@ export default function Interface({ storages }) {
 
 
                 {card.map((cardSp) => {
-                    return <CardAdd cardSp={cardSp} deleteCard={deleteCard} count={count++} />
-
+                    return <CardAdd cardSp={cardSp} deleteCard={deleteCard} count={count++} storageCard = {LOCAL_STORAGE_KEY} />
                 })
 
                 }

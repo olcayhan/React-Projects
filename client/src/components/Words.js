@@ -12,7 +12,10 @@ export function Words({ word, deleteWord }) {
             <p className='word--turkish'>{word.turkish}</p>
             <p className='word--english'> {word.english}</p>
             <button type="submit" className='delBtn' onClick={delWord}>Delete</button>
+
             <hr />
+
+
         </li>
     )
 }

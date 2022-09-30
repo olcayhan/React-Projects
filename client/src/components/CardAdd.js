@@ -1,32 +1,52 @@
 import React, { useRef } from 'react'
 
-export default function CardAdd({ cardSp, deleteCard, count }) {
+export default function CardAdd({ cardSp, deleteCard, count, storageCard }) {
+
+
 
 
     const name = useRef()
     const edit = useRef()
+
+
     function routesChange() {
         window.location.pathname = `/set${count}`
-
+    }
+    function routeLearn() {
+        window.location.pathname = `/learn${count}`
     }
 
     function editName() {
-        if (edit.current.value !== "") name.current.innerHTML = edit.current.value
+        if (edit.current.value !== "") name.current.value = edit.current.value;
+
+        const storedData = JSON.parse(localStorage.getItem(storageCard))
+        storedData[count - 1].nameCard = edit.current.value;
+        
+        localStorage.setItem(storageCard, JSON.stringify(storedData))
+
+        console.log(storedData[count - 1].nameCard);
+
+
+
+
+        edit.current.value = null
     }
     function deleteCards() {
         deleteCard(cardSp);
     }
 
+    if (cardSp !== "a") {
 
-    return (
-        <div className="card" id='cards'>
-            <button onClick={routesChange} ref={name}>{cardSp.nameCard}</button>
-            <button type='submit' onClick={deleteCards} >Delete Card</button>
-            <input type="text" placeholder='editName' ref={edit} />
-            <button type="submit" onClick={editName}>Edit</button>
+        return (
+            <div className="card" id='cards'>
+                <input type="submit" onClick={routesChange} ref={name} value={cardSp.nameCard} />
+                <input type='submit' onClick={deleteCards} value="Delete" />
+                <input type="text" placeholder='editName' ref={edit} />
+                <input type="submit" onClick={editName} value="edit" />
+                <button onClick={routeLearn}>Learn</button>
 
-        </div>
-    )
-
+            </div>
+        )
+    }
 
 }

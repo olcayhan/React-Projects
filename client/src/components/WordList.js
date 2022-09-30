@@ -65,11 +65,13 @@ export default function WordList({ stored }) {
                 {words.map(word => {
                     return <Words word={word} deleteWord={deleteWord} />
 
+
+
                 })
 
                 }
-
             </ol>
+            
 
         </div>
     )

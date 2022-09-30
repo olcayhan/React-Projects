@@ -3,7 +3,11 @@ import AgainSection from "./AgainSection";
 import Questions from "./Questions";
 
 
-export default function Learn({ allWords }) {
+export default function Learn({ stored }) {
+
+
+  const allWords = JSON.parse(localStorage.getItem(stored))
+  console.log(allWords);
 
   const [wordId, setWordId] = useState(0)
   const [question, setQuestion] = useState([...allWords])
