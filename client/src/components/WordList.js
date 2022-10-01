@@ -48,7 +48,6 @@ export default function WordList({ stored }) {
     }
 
 
-    if (words.length > 5) return;
 
     return (
 
