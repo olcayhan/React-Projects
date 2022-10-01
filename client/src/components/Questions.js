@@ -1,13 +1,10 @@
 import React from 'react'
 
-export default function Questions({ answer, question, setWordID, setCount, count }) {
+export default function Questions({ answer, question, setWordID }) {
 
     function getWordId() {
-        if (count === 3) setCount(0)
-        else setCount(prevCount => prevCount = prevCount + 1)
-
         if (question === answer.turkish) {
-
+            setWordID(answer.id)
         }
         else {
             setWordID(1)
