@@ -63,7 +63,7 @@ export default function Learn({ learnStorages }) {
 
 
   return (
-    <div>
+    <div className="learnSection">
       <h1>
         {question4s.current[0].turkish}
       </h1>

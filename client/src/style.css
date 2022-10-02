@@ -17,33 +17,35 @@ body {
     background-color: #5C2E7E;
     color: #fff;
     margin: 10px 10px;
-    width: 70px;
+    width: 30px;
     height: 30px;
     cursor: pointer;
     border: none;
-    border-radius: 10px;
-
-
+    border-radius: 50px;
 }
 
 .word--turkish {
     font-size: 25px;
     margin: auto;
-    width: 80px;
+    width: auto;
     height: 40px;
     text-align: center;
-    border-radius: 10px;
+    border-radius: 5px;
     background-color: #C689C6;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 .word--english {
     font-size: 25px;
     margin: auto;
-    width: 80px;
+    width: auto;
     height: 40px;
     text-align: center;
     border-radius: 10px;
     background-color: #C689C6;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 .header--words {
@@ -53,25 +55,31 @@ body {
     width: 360px;
     background-color: #FFE6F7;
     border-radius: 10px;
+    text-align: center;
+
 }
 
 .header--words span {
     margin-left: 40px;
     margin-right: 40px;
+    color: #25316D;
+    font-size: 30px;
+    text-align: center;
+
 }
 
 .card--all {
 
     background-color: #5C2E7E;
     width: 600px;
-    margin: 50px 300px;
+    margin: 60px auto;
     border-radius: 15px;
 }
 
 .input--turkish {
     width: 200px;
     margin: 20px 20px;
-    height: 55px;
+    height: 50px;
     border: solid;
     border-radius: 20px;
     text-align: center;
@@ -80,7 +88,7 @@ body {
 .input--english {
     width: 200px;
     margin: 20px 20px;
-    height: 55px;
+    height: 50px;
     border: solid;
     border-radius: 20px;
     text-align: center;
@@ -88,11 +96,14 @@ body {
 }
 
 .addBtn {
+    position: absolute;
+    margin-top: 20px;
     border-radius: 10px;
-    width: 90px;
+    font-size: 25px;
+    width: 50px;
     height: 50px;
-    border: solid;
-    border-width: 1px;
+    border: none;
+    border-radius: 50px;
     color: #fff;
     background-color: #400D51;
     cursor: pointer;
@@ -100,12 +111,12 @@ body {
 }
 
 .sets {
-    margin: 200px 100px;
+    margin: 200px 75px;
     display: inline-flex;
     height: 200px;
 }
 
-.card--input{
+.card--input {
     height: 40px;
     margin: 40px;
     width: 180px;
@@ -116,18 +127,27 @@ body {
     border-radius: 20px;
 
 }
-.card--button{
+
+.card--button {
     height: 50px;
     width: 50px;
     border-radius: 50px;
     margin-left: 100px;
     cursor: pointer;
     background-color: #182747;
-    font-size: 30px;
+    font-size: 25px;
     font-weight: 600;
+    color: #FFE6F7;
 
 }
-.card{
+
+.card--button:hover {
+    background-color: #7895B2;
+    color: #182747;
+
+}
+
+.card {
     background-color: #7895B2;
     border-radius: 30px;
     height: 200px;
@@ -140,15 +160,116 @@ body {
 
 }
 
-.cardName{
-    padding: 30px;
+.cardName {
+    padding: 60px;
     border: none;
-    border-radius: 30px 30px 0px 0px;
-    background-color: #182747;
+    border-radius: 30px 30px 10px 10px;
+    background-color: #533483;
+    color: #FFE6F7;
+    font-size: 25px;
+    cursor: pointer;
+    text-align: center;
+
 }
-.deleteCard{
+
+.cardName:hover {
+    opacity: 0.7;
 }
-.editName{
+
+
+.editName {
+    width: 100px;
+    margin: 8px auto;
+    background-color: #400D51;
+    border-radius: 10px;
+    text-align: center;
+    border: none;
+    color: #FFE6F7;
 }
-.editBtn{
+
+.editBtn {
+    position: absolute;
+    width: 27px;
+    height: 27px;
+    font-size: 13px;
+    margin: 165px 157px;
+    border-radius: 50px;
+    background-color: #400D51;
+    color: #FFE6F7;
+    cursor: pointer;
+    border: none;
+
+}
+
+.learnBtn {
+    padding: 3px;
+    color: #5C2E7E;
+    background-color: #FFE6F7;
+    border-radius: 20px;
+    margin-top: 35px;
+    margin-left: 10px;
+    border: none;
+    cursor: pointer;
+    font-weight: 800;
+    font-size: 20px;
+
+}
+
+.testBtn {
+    padding: 3px;
+    margin-top: 20px;
+    margin-left: 10px;
+    color: #5C2E7E;
+    background-color: #FFE6F7;
+    border-radius: 25px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: 800;
+
+
+}
+
+.deleteCard {
+    position: absolute;
+    width: 27px;
+    height: 27px;
+    border: none;
+    margin: 165px 11px;
+    background-color: #400D51;
+    color: #FFE6F7;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 13px;
+
+
+
+}
+
+.learnSection {
+    width: 600px;
+    height: 550px;
+    background-color: #400D51;
+    margin: 70px auto;
+    border-radius: 20px;
+    background-color: #7895B2;
+}
+
+.learnSection h1 {
+    text-align: center;
+    color: #FFE6F7;
+    margin: 60px auto;
+    font-size: 60px;
+    font-weight: 500;
+}
+
+.learn--answerBtn {
+    width: 300px;
+    height: 50px;
+    margin: 10px 150px;
+    background-color: #25316D;
+    border-radius: 20px;
+    color: #FFE6F7;
+    font-size: 30px;
+    cursor: pointer;
 }

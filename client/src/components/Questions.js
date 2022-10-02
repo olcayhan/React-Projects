@@ -22,7 +22,7 @@ export default function Questions({ answer, question, setWordID }) {
         <div>
             <input
                 type="submit"
-                className='btn btn-primary w-25 m-2'
+                className='learn--answerBtn'
                 onClick={getWordId}
                 value={answer.english}
             />

@@ -55,7 +55,7 @@ export default function WordList({ stored }) {
         <div className="card--all">
             <input className="input--turkish" type="text" ref={handleTurkish} placeholder="Turkish Word" />
             <input className="input--english" type="text" ref={handleEnglish} placeholder="English Word" />
-            <button className="addBtn" type="submit" onClick={addWord}> Add Word</button>
+            <button className="addBtn" type="submit" onClick={addWord}>+</button>
 
             <ol>
                 <p className="header--words"><span>Turkish</span>-<span>English</span></p>

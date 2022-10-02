@@ -11,7 +11,7 @@ export function Words({ word, deleteWord }) {
         <li className='lists'>
             <p className='word--turkish'>{word.turkish}</p>
             <p className='word--english'> {word.english}</p>
-            <button type="submit" className='delBtn' onClick={delWord}>Delete</button>
+            <button type="submit" className='delBtn' onClick={delWord}><i class="fa fa-remove"></i></button>
 
             <hr />
 

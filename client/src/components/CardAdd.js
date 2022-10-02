@@ -40,10 +40,12 @@ export default function CardAdd({ cardSp, deleteCard, count, storageCard }) {
         return (
             <div className="card" id='cards'>
                 <input className="cardName" type="submit" onClick={routesChange} ref={name} value={cardSp.nameCard} />
-                <input className="editName" type="text" placeholder='editName' ref={edit} />
-                <input className="editBtn" type="submit" onClick={editName} value="edit" />
-                <input type="submit" onClick={routeLearn} value="Learn" />
-                <button className="deleteCard" onClick={deleteCards} >Delete <i class="fa fa-remove"></i></button>
+                <input className="editName" type="text" placeholder='Edit Name' ref={edit} />
+                <button className="editBtn" type="submit" onClick={editName}> <i class="fa fa-check"></i></button>
+                
+                <button className='learnBtn' type="submit" onClick={routeLearn} >Learn</button>
+                <button className='testBtn' type="submit" onClick={routeLearn}  >Test</button>
+                <button className="deleteCard" onClick={deleteCards} ><i class="fa fa-remove"></i></button>
             </div>
         )
     }
