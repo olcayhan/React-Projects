@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 
 import Questions from "./Questions";
 
@@ -25,51 +25,37 @@ export default function Learn({ learnStorages }) {
     wrongAnswers.current.push(question4s.current[0])
     question4s.current.splice(0, 1)
   }
-  else {
-    console.log("game start");
-  }
-
 
 
   if (question4s.current.length === 0) {
-    if (questions.current.length === 4) {
-      questions.current = wrongAnswers.current
-      question4s.current = questions.current.slice(0, 4)
-    }
-    else if (questions.current.length === 3) {
-      questions.current = wrongAnswers.current
-      question4s.current = questions.current.slice(0, 3)
-    }
-    else if (questions.current.length === 2) {
-      questions.current = wrongAnswers.current
-      question4s.current = questions.current.slice(0, 2)
-    }
-    else if (questions.current.length === 1) {
-      questions.current = wrongAnswers.current
-      question4s.current = questions.current.slice(0, 1)
-    }
-
-    else {
-      questions.current.splice(0, 4)
-      question4s.current = questions.current.slice(0, 4)
-    }
+    questions.current.splice(0, 4)
+    question4s.current = questions.current.slice(0, 4)
   }
-
 
 
   let answers = questions.current.slice(0, 4)
 
   answers = answers.sort(() => Math.random() - 0.5)
 
+  if (questions.current.length === 0) return;
 
   return (
     <div className="learnSection">
+
       <h1>
         {question4s.current[0].turkish}
       </h1>
-      {answers.map((answer) => {
-        return <Questions answer={answer} question={question4s.current[0].turkish} setWordID={setWordID} />
-      })}
+      {
+        answers.map((answer) => {
+
+          return <Questions
+            answer={answer}
+            question={question4s.current[0].turkish}
+            setWordID={setWordID}
+          />
+
+        })
+      }
 
     </div>
   )

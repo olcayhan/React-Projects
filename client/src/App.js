@@ -31,11 +31,11 @@ export default function App() {
                     <Route path={"/set4"} element={<WordList stored={storages[3]} />} />
                     <Route path={"/set5"} element={<WordList stored={storages[4]} />} />
 
-                    <Route path={"/learn1"} element={<Learn learnStorages={storages[0]} />} />
-                    <Route path={"/learn2"} element={<Learn learnStorages={storages[1]} />} />
-                    <Route path={"/learn3"} element={<Learn learnStorages={storages[2]} />} />
-                    <Route path={"/learn4"} element={<Learn learnStorages={storages[3]} />} />
-                    <Route path={"/learn5"} element={<Learn learnStorages={storages[4]} />} />
+                    <Route path={"/test1"} element={<Learn learnStorages={storages[0]} />} />
+                    <Route path={"/test2"} element={<Learn learnStorages={storages[1]} />} />
+                    <Route path={"/test3"} element={<Learn learnStorages={storages[2]} />} />
+                    <Route path={"/test4"} element={<Learn learnStorages={storages[3]} />} />
+                    <Route path={"/test5"} element={<Learn learnStorages={storages[4]} />} />
 
                 </Routes>
             </BrowserRouter>}

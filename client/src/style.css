@@ -23,6 +23,9 @@ body {
     border: none;
     border-radius: 50px;
 }
+.delBtn:hover{
+    opacity: 0.7;
+}
 
 .word--turkish {
     font-size: 25px;
@@ -53,7 +56,7 @@ body {
     margin-left: 8px;
     color: #937DC2;
     width: 360px;
-    background-color: #FFE6F7;
+    background-color: #FFF;
     border-radius: 10px;
     text-align: center;
 
@@ -110,6 +113,10 @@ body {
 
 }
 
+.addBtn:hover{
+    opacity: 0.7;
+}
+
 .sets {
     margin: 200px 75px;
     display: inline-flex;
@@ -121,11 +128,17 @@ body {
     margin: 40px;
     width: 180px;
     background-color: #182747;
-    color: #7895B2;
+    color: #FFF;
+    font-size: 20px;
     border: none;
     text-align: center;
     border-radius: 20px;
 
+}
+
+.card--input::placeholder{
+    opacity: 0.8;
+    color: #FFF;
 }
 
 .card--button {
@@ -142,8 +155,14 @@ body {
 }
 
 .card--button:hover {
+    transition: all 0.3s ease;
     background-color: #7895B2;
     color: #182747;
+    border: solid;
+    border-width: 1px;
+    border-color: #FFF;
+    font-weight: 600;
+
 
 }
 
@@ -174,6 +193,7 @@ body {
 
 .cardName:hover {
     opacity: 0.7;
+    transition: all 0.3s ease;
 }
 
 
@@ -185,6 +205,10 @@ body {
     text-align: center;
     border: none;
     color: #FFE6F7;
+}
+.editName::placeholder{
+    opacity: 0.8;
+    color: #FFF;
 }
 
 .editBtn {
@@ -200,11 +224,14 @@ body {
     border: none;
 
 }
+.editBtn:hover{
+    opacity: 0.7;
+}
 
 .learnBtn {
     padding: 3px;
     color: #5C2E7E;
-    background-color: #FFE6F7;
+    background-color: #fff;
     border-radius: 20px;
     margin-top: 35px;
     margin-left: 10px;
@@ -215,12 +242,18 @@ body {
 
 }
 
+.learnBtn:hover {
+    transition: all 0.3s ease;
+    background-color: #5C2E7E;
+    color: #FFF;
+}
+
 .testBtn {
     padding: 3px;
     margin-top: 20px;
     margin-left: 10px;
     color: #5C2E7E;
-    background-color: #FFE6F7;
+    background-color: #FFF;
     border-radius: 25px 20px;
     border: none;
     cursor: pointer;
@@ -230,6 +263,12 @@ body {
 
 }
 
+.testBtn:hover {
+    transition: all 0.3s ease;
+    background-color: #5C2E7E;
+    color: #FFF;
+}
+
 .deleteCard {
     position: absolute;
     width: 27px;
@@ -237,13 +276,13 @@ body {
     border: none;
     margin: 165px 11px;
     background-color: #400D51;
-    color: #FFE6F7;
+    color: #FFF;
     border-radius: 20px;
     cursor: pointer;
     font-size: 13px;
-
-
-
+}
+.deleteCard:hover{
+    opacity: 0.7;
 }
 
 .learnSection {
@@ -257,8 +296,8 @@ body {
 
 .learnSection h1 {
     text-align: center;
-    color: #FFE6F7;
-    margin: 60px auto;
+    color: #FFF;
+    margin:60px auto;
     font-size: 60px;
     font-weight: 500;
 }
@@ -269,7 +308,25 @@ body {
     margin: 10px 150px;
     background-color: #25316D;
     border-radius: 20px;
-    color: #FFE6F7;
+    color: #FFF;
     font-size: 30px;
     cursor: pointer;
+}
+.learn--answerBtn:hover{
+    opacity: 0.7;
+}
+
+
+.setCheck{
+    position: absolute;
+    width: 500px;
+    height: 400px;
+    margin: 100px 50px;
+    border-radius: 50px;
+    background-color: #182747;
+}
+
+.setCheck button{
+    margin: 250px 150px;
+    width: 200px;
 }
