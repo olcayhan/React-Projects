@@ -15,31 +15,39 @@ export default function Learn({ learnStorages }) {
 
   let question4s = useRef(questions.current.slice(0, 4))
 
-  let answers = questions.current.slice(0, 4)
 
   let correctAnswers = useRef([])
   let wrongAnswers = useRef([])
-
-  if (question4s.current.length === 0) {
-    questions.current.splice(0, 4)
-    question4s.current = questions.current.slice(0, 4)
-    //localStorage.setItem(learnStorages, JSON.stringify(questions))
-  }
-
-  console.log(questions.current);
 
 
   if (wordID === question4s.current[0].id) {
     correctAnswers.current.push(question4s.current[0])
     question4s.current.splice(0, 1)
-
   }
-  else if (wordID === 1) {
+  else if (wordID === 1 || wordID === 2) {
     wrongAnswers.current.push(question4s.current[0])
     question4s.current.splice(0, 1)
   }
 
+
+
+  if (question4s.current.length === 0) {
+    console.log(questions.current.length);
+    if (questions.current.length === 4) {
+      questions.current = wrongAnswers.current
+      question4s.current = questions.current.slice(0, 4)
+    }
+    else {
+      questions.current.splice(0, 4)
+      question4s.current = questions.current.slice(0, 4)
+    }
+  }
+
+
+  let answers = questions.current.slice(0, 4)
+
   answers = answers.sort(() => Math.random() - 0.5)
+
 
   return (
     <div>
