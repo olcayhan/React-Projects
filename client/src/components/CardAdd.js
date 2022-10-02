@@ -21,7 +21,7 @@ export default function CardAdd({ cardSp, deleteCard, count, storageCard }) {
 
         const storedData = JSON.parse(localStorage.getItem(storageCard))
         storedData[count - 1].nameCard = edit.current.value;
-        
+
         localStorage.setItem(storageCard, JSON.stringify(storedData))
 
         console.log(storedData[count - 1].nameCard);
@@ -39,12 +39,11 @@ export default function CardAdd({ cardSp, deleteCard, count, storageCard }) {
 
         return (
             <div className="card" id='cards'>
-                <input type="submit" onClick={routesChange} ref={name} value={cardSp.nameCard} />
-                <input type='submit' onClick={deleteCards} value="Delete" />
-                <input type="text" placeholder='editName' ref={edit} />
-                <input type="submit" onClick={editName} value="edit" />
-                <button onClick={routeLearn}>Learn</button>
-
+                <input className="cardName" type="submit" onClick={routesChange} ref={name} value={cardSp.nameCard} />
+                <input className="editName" type="text" placeholder='editName' ref={edit} />
+                <input className="editBtn" type="submit" onClick={editName} value="edit" />
+                <input type="submit" onClick={routeLearn} value="Learn" />
+                <button className="deleteCard" onClick={deleteCards} >Delete <i class="fa fa-remove"></i></button>
             </div>
         )
     }

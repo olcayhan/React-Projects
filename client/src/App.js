@@ -9,24 +9,12 @@ const LOCAL_STORAGE_KEY3 = "Word.app2"
 const LOCAL_STORAGE_KEY4 = "Word.app3"
 const LOCAL_STORAGE_KEY5 = "Word.app4"
 
-const LOCAL_STORAGE_KEY10 = "learn.app0"
-const LOCAL_STORAGE_KEY20 = "learn.app1"
-const LOCAL_STORAGE_KEY30 = "learn.app2"
-const LOCAL_STORAGE_KEY40 = "learn.app3"
-const LOCAL_STORAGE_KEY50 = "learn.app4"
 
 
 export default function App() {
 
     const storages = [LOCAL_STORAGE_KEY1, LOCAL_STORAGE_KEY2, LOCAL_STORAGE_KEY3, LOCAL_STORAGE_KEY4, LOCAL_STORAGE_KEY5]
-    const learnStorages = [LOCAL_STORAGE_KEY10, LOCAL_STORAGE_KEY20, LOCAL_STORAGE_KEY30, LOCAL_STORAGE_KEY40, LOCAL_STORAGE_KEY50]
 
-    for (let i = 0; i < 5; i++) {
-        if (JSON.parse(localStorage.getItem(learnStorages[i]) === null)) {
-            const allWords = JSON.parse(localStorage.getItem(storages[i]))
-            localStorage.setItem(learnStorages[i], JSON.stringify(allWords))
-        }
-    }
 
 
     return (
@@ -43,11 +31,11 @@ export default function App() {
                     <Route path={"/set4"} element={<WordList stored={storages[3]} />} />
                     <Route path={"/set5"} element={<WordList stored={storages[4]} />} />
 
-                    <Route path={"/learn1"} element={<Learn learnStorages={learnStorages[0]} />} />
-                    <Route path={"/learn2"} element={<Learn learnStorages={learnStorages[1]} />} />
-                    <Route path={"/learn3"} element={<Learn learnStorages={learnStorages[2]} />} />
-                    <Route path={"/learn4"} element={<Learn learnStorages={learnStorages[3]} />} />
-                    <Route path={"/learn5"} element={<Learn learnStorages={learnStorages[4]} />} />
+                    <Route path={"/learn1"} element={<Learn learnStorages={storages[0]} />} />
+                    <Route path={"/learn2"} element={<Learn learnStorages={storages[1]} />} />
+                    <Route path={"/learn3"} element={<Learn learnStorages={storages[2]} />} />
+                    <Route path={"/learn4"} element={<Learn learnStorages={storages[3]} />} />
+                    <Route path={"/learn5"} element={<Learn learnStorages={storages[4]} />} />
 
                 </Routes>
             </BrowserRouter>}
