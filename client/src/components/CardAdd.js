@@ -1,6 +1,6 @@
 import React, { useRef } from 'react'
 
-export default function CardAdd({ cardSp, deleteCard, count, storageCard }) {
+export default function CardAdd({ cardSp, deleteCard, count, storageCard, hidden }) {
 
 
 
@@ -33,7 +33,7 @@ export default function CardAdd({ cardSp, deleteCard, count, storageCard }) {
 
         }
     }
-    function deleteCards() {
+    function deleteCards(e) {
         deleteCard(cardSp);
     }
 
@@ -47,7 +47,7 @@ export default function CardAdd({ cardSp, deleteCard, count, storageCard }) {
             </button>
 
             <button className='learnBtn' type="submit" onClick={routeLearn}>
-                Learn
+                Pair
             </button>
             <button className='testBtn' type="submit" onClick={routeTest}>
                 Test

@@ -1,7 +1,9 @@
 import Interface from "./components/Interface";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import WordList from "./components/WordList";
-import Test from "./components/Learn";
+import Test from "./components/Test";
+import Learn from "./components/Learn";
+
 
 const LOCAL_STORAGE_KEY1 = "Word.app0"
 const LOCAL_STORAGE_KEY2 = "Word.app1"
@@ -31,11 +33,17 @@ export default function App() {
                     <Route path={"/set4"} element={<WordList stored={storages[3]} />} />
                     <Route path={"/set5"} element={<WordList stored={storages[4]} />} />
 
-                    <Route path={"/test1"} element={<Test learnStorages={storages[0]} />} />
-                    <Route path={"/test2"} element={<Test learnStorages={storages[1]} />} />
-                    <Route path={"/test3"} element={<Test learnStorages={storages[2]} />} />
-                    <Route path={"/test4"} element={<Test learnStorages={storages[3]} />} />
-                    <Route path={"/test5"} element={<Test learnStorages={storages[4]} />} />
+                    <Route path={"/test1"} element={<Test testStorages={storages[0]} />} />
+                    <Route path={"/test2"} element={<Test testStorages={storages[1]} />} />
+                    <Route path={"/test3"} element={<Test testStorages={storages[2]} />} />
+                    <Route path={"/test4"} element={<Test testStorages={storages[3]} />} />
+                    <Route path={"/test5"} element={<Test testStorages={storages[4]} />} />
+
+                    <Route path={"/Learn1"} element={<Learn learnStorages={storages[0]} />} />
+                    <Route path={"/Learn2"} element={<Learn learnStorages={storages[1]} />} />
+                    <Route path={"/Learn3"} element={<Learn learnStorages={storages[2]} />} />
+                    <Route path={"/Learn4"} element={<Learn learnStorages={storages[3]} />} />
+                    <Route path={"/Learn5"} element={<Learn learnStorages={storages[4]} />} />
 
                 </Routes>
             </BrowserRouter>}

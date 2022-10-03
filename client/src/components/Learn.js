@@ -1,96 +1,48 @@
-import React, { useRef, useState } from "react";
-import Questions from "./Questions";
+import React, { useState } from 'react'
+
+export default function Learn({ learnStorages }) {
+
+    const allWords = JSON.parse(localStorage.getItem(learnStorages))
+    const [wordTemp, setWordTemp] = useState(allWords)
+
+    wordTemp.sort(() => Math.random() - 0.5)
+    let fullSelected = []
+    function checkCorrect(e) {
+        fullSelected.push(e.target)
+        e.target.style.backgroundColor = "#533483"
+        if (fullSelected.length === 2) {
+
+            fullSelected[0].style.backgroundColor = "#400D51"
+            fullSelected[1].style.backgroundColor = "#400D51"
+
+            if (fullSelected[0] === fullSelected[1]) {
+
+                alert("please don't click same button")
+
+            }
+
+            else if (fullSelected[0].value === fullSelected[1].value) {
+
+                setWordTemp(wordTemp.filter((item) => fullSelected[0].value !== item.id))
+                setWordTemp(wordTemp.filter((item) => fullSelected[1].value !== item.id))
+
+            }
+
+            fullSelected = []
+        }
 
 
-export default function Test({ learnStorages }) {
-
-  const allWords = JSON.parse(localStorage.getItem(learnStorages))
-  let count = useRef(1)
-  let answers;
-  const [wordID, setWordID] = useState(0)
-
-  // prepare for split questions
-  let questions = useRef([...allWords])
-  let question4s = useRef(questions.current.slice(0, 4))
-  let correctAnswers = useRef([])
-  let wrongAnswers = useRef([])
-
-  if (questions.current.length !== 0) {
-    if (wordID === question4s.current[0].id) {
-      correctAnswers.current.push(question4s.current[0])
-      question4s.current.splice(0, 1)
     }
-    else if (wordID === 1 || wordID === 2) {
-      wrongAnswers.current.push(question4s.current[0])
-      question4s.current.splice(0, 1)
-    }
-
-    if (question4s.current.length === 0) {
-      questions.current.splice(0, 4)
-      question4s.current = questions.current.slice(0, 4)
-    }
-
-    answers = questions.current.slice(0, 4)
-
-    answers.sort(() => Math.random() - 0.5)
 
 
     return (
-      <div className="learnSection">
-
-        <div className="pointCounter">
-          Point: {correctAnswers.current.length}
+        <div>
+            {wordTemp.map((item) => {
+                return <button className='pairWith' onClick={checkCorrect} value={item.id}>{item.turkish}</button>
+            })}
+            {wordTemp.map((item) => {
+                return <button className='pairWith' onClick={checkCorrect} value={item.id}>{item.english}</button>
+            })}
         </div>
-
-        <div className="questionSection">
-          <h1>
-            {question4s.current[0].turkish}
-          </h1>
-        </div>
-        <div className="answersSection">
-          {
-            answers.map((answer) => {
-
-              return <Questions
-                answer={answer}
-                question={question4s.current[0].turkish}
-                setWordID={setWordID}
-                count={count}
-              />
-
-            })
-          }
-        </div>
-      </div>
     )
-  }
-  else {
-    console.log("hello");
-    return (
-      <div className="setCheck">
-        <div className="correctAns">
-
-          Correct Answers : {correctAnswers.current.map((item) => { return <p>{item.english}</p> })}
-
-        </div>
-
-
-        <button className="playAgain">Play again</button>
-
-
-        <div className="wrongAns">
-
-          Wrong Answers: {wrongAnswers.current.map((item) => { return <p>{item.english}</p> })}
-
-        </div>
-      </div>
-    )
-  }
-
-
-
-
-
-
-
 }

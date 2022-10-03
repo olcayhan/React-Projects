@@ -2,14 +2,13 @@ import React, { useState, useRef, useEffect } from 'react'
 import CardAdd from './CardAdd'
 import { v4 as uuidv4 } from 'uuid';
 
-const LOCAL_STORAGE_KEY = "Card.app" // don't change if you want to keep your data
+const LOCAL_STORAGE_KEY = "Card.app123" // don't change if you want to keep your data
 
 
 export default function Interface({ storages }) {
 
     let count = 1;
     const cardNames = useRef()
-
     const [card, setCard] = useState([])
     useEffect(() => {
         const storedData = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY))
@@ -25,8 +24,8 @@ export default function Interface({ storages }) {
 
     function deleteCard(cardSp) {
         //const newCard = card.filter((item) => item.id !== cardSp.id);
-        let index = card.indexOf(cardSp)
-        card[index] = "";
+        let index = card.indexOf(cardSp);
+        card[index].hidden = true;
         setCard(card)
         localStorage.setItem(storages[index], JSON.stringify([]))
     }
@@ -38,7 +37,7 @@ export default function Interface({ storages }) {
         const name = cardNames.current.value
         if (name !== "" && card.length < 5) {
 
-            setCard(prevCard => [...prevCard, { id: uuidv4(), nameCard: name }])
+            setCard(prevCard => [...prevCard, { id: uuidv4(), nameCard: name, hidden: "false" }])
             cardNames.current.value = null
         }
         else if (name === "") {
@@ -49,6 +48,7 @@ export default function Interface({ storages }) {
         }
 
     }
+    console.log(card);
 
     return (
 
@@ -63,7 +63,12 @@ export default function Interface({ storages }) {
 
 
                 {card.map((cardSp) => {
-                    return <CardAdd cardSp={cardSp} deleteCard={deleteCard} count={count++} storageCard = {LOCAL_STORAGE_KEY} />
+                    return <div>
+                        {cardSp.hidden}
+                        {
+                            cardSp.hidden === 1 ? <CardAdd cardSp={cardSp} deleteCard={deleteCard} count={count++} storageCard={LOCAL_STORAGE_KEY} /> : <div></div>
+                        }
+                    </div>
                 })
 
                 }
