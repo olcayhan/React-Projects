@@ -6,7 +6,9 @@ export default function Learn({ learnStorages }) {
     const [wordTemp, setWordTemp] = useState(allWords)
 
     wordTemp.sort(() => Math.random() - 0.5)
+
     let fullSelected = []
+    
     function checkCorrect(e) {
         fullSelected.push(e.target)
         e.target.style.backgroundColor = "#533483"
