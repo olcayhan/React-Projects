@@ -1,12 +1,12 @@
 import React, { useRef, useState } from "react";
-
 import Questions from "./Questions";
 
 
-export default function Learn({ learnStorages }) {
+export default function Test({ learnStorages }) {
 
   const allWords = JSON.parse(localStorage.getItem(learnStorages))
-
+  let count = useRef(1)
+  let answers;
   const [wordID, setWordID] = useState(0)
 
   // prepare for split questions
@@ -15,50 +15,79 @@ export default function Learn({ learnStorages }) {
   let correctAnswers = useRef([])
   let wrongAnswers = useRef([])
 
+  if (questions.current.length !== 0) {
+    if (wordID === question4s.current[0].id) {
+      correctAnswers.current.push(question4s.current[0])
+      question4s.current.splice(0, 1)
+    }
+    else if (wordID === 1 || wordID === 2) {
+      wrongAnswers.current.push(question4s.current[0])
+      question4s.current.splice(0, 1)
+    }
 
-  if (wordID === question4s.current[0].id) {
-    correctAnswers.current.push(question4s.current[0])
-    question4s.current.splice(0, 1)
+    if (question4s.current.length === 0) {
+      questions.current.splice(0, 4)
+      question4s.current = questions.current.slice(0, 4)
+    }
 
+    answers = questions.current.slice(0, 4)
+
+    answers.sort(() => Math.random() - 0.5)
+
+
+    return (
+      <div className="learnSection">
+
+        <div className="pointCounter">
+          Point: {correctAnswers.current.length}
+        </div>
+
+        <div className="questionSection">
+          <h1>
+            {question4s.current[0].turkish}
+          </h1>
+        </div>
+        <div className="answersSection">
+          {
+            answers.map((answer) => {
+
+              return <Questions
+                answer={answer}
+                question={question4s.current[0].turkish}
+                setWordID={setWordID}
+                count={count}
+              />
+
+            })
+          }
+        </div>
+      </div>
+    )
   }
-  else if (wordID === 1 || wordID === 2) {
-    wrongAnswers.current.push(question4s.current[0])
-    question4s.current.splice(0, 1)
+  else {
+    console.log("hello");
+    return (
+      <div className="setCheck">
+        <div className="correctAns">
+
+          Correct Answers : {correctAnswers.current.map((item) => { return <p>{item.english}</p> })}
+
+        </div>
+
+
+        <button className="playAgain">Play again</button>
+
+
+        <div className="wrongAns">
+
+          Wrong Answers: {wrongAnswers.current.map((item) => { return <p>{item.english}</p> })}
+
+        </div>
+      </div>
+    )
   }
 
 
-  if (question4s.current.length === 0) {
-    questions.current.splice(0, 4)
-    question4s.current = questions.current.slice(0, 4)
-  }
-
-
-  let answers = questions.current.slice(0, 4)
-
-  answers = answers.sort(() => Math.random() - 0.5)
-
-  if (questions.current.length === 0) return;
-
-  return (
-    <div className="learnSection">
-
-      <h1>
-        {question4s.current[0].turkish}
-      </h1>
-      {
-        answers.map((answer) => {
-
-          return <Questions
-            answer={answer}
-            question={question4s.current[0].turkish}
-            setWordID={setWordID}
-          />
-
-        })
-      }
-
-    </div>
-  )
 
 
 

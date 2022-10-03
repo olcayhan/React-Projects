@@ -23,7 +23,8 @@ body {
     border: none;
     border-radius: 50px;
 }
-.delBtn:hover{
+
+.delBtn:hover {
     opacity: 0.7;
 }
 
@@ -113,7 +114,7 @@ body {
 
 }
 
-.addBtn:hover{
+.addBtn:hover {
     opacity: 0.7;
 }
 
@@ -136,7 +137,7 @@ body {
 
 }
 
-.card--input::placeholder{
+.card--input::placeholder {
     opacity: 0.8;
     color: #FFF;
 }
@@ -206,7 +207,8 @@ body {
     border: none;
     color: #FFE6F7;
 }
-.editName::placeholder{
+
+.editName::placeholder {
     opacity: 0.8;
     color: #FFF;
 }
@@ -224,7 +226,8 @@ body {
     border: none;
 
 }
-.editBtn:hover{
+
+.editBtn:hover {
     opacity: 0.7;
 }
 
@@ -281,7 +284,8 @@ body {
     cursor: pointer;
     font-size: 13px;
 }
-.deleteCard:hover{
+
+.deleteCard:hover {
     opacity: 0.7;
 }
 
@@ -294,39 +298,91 @@ body {
     background-color: #7895B2;
 }
 
-.learnSection h1 {
+.questionSection {
+    position: absolute;
+    background-color: #182747;
+    width: 200px;
+    padding-left: auto;
+    padding-right: auto;
+
+    height: 75px;
+    margin: 60px 200px;
     text-align: center;
+    border-radius: 15px;
+}
+
+.questionSection h1 {
     color: #FFF;
-    margin:60px auto;
     font-size: 60px;
     font-weight: 500;
+}
+
+.answersSection {
+    position: absolute;
+    margin: 180px 0;
 }
 
 .learn--answerBtn {
     width: 300px;
     height: 50px;
     margin: 10px 150px;
+    border: none;
     background-color: #25316D;
     border-radius: 20px;
     color: #FFF;
     font-size: 30px;
     cursor: pointer;
 }
-.learn--answerBtn:hover{
+
+.learn--answerBtn:hover {
     opacity: 0.7;
 }
 
-
-.setCheck{
+.pointCounter{
     position: absolute;
+    margin: 0px -350px;
+    background-color: #400D51;
+    color: #FFF;
+    font-size: 40px;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+
+
+.setCheck {
     width: 500px;
     height: 400px;
-    margin: 100px 50px;
+    margin: 100px auto;
     border-radius: 50px;
     background-color: #182747;
+    color: #FFF;
+    display: flex;
+    flex-direction: column;
 }
 
-.setCheck button{
-    margin: 250px 150px;
-    width: 200px;
+
+.correctAns{
+    border-radius: 20px 20px 0 0;
+    text-align: center;
+    background-color: #400D51;
 }
+
+
+.wrongAns{
+    border-radius: 0 0 20px 20px;
+    text-align: center;
+    background-color: #400D51;
+}
+
+.playAgain{
+    background-color: #533483;
+    color: #FFF;
+    border: none;
+    height: 40px;
+    cursor: pointer;
+}
+.playAgain:hover{
+    opacity: 0.7;
+}
+

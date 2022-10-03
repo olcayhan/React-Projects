@@ -1,10 +1,8 @@
 import React from 'react'
-import { useRef } from "react";
 
-export default function Questions({ answer, question, setWordID }) {
-    let count = useRef(0)
+export default function Questions({ answer, question, setWordID , count}) {
+
     function getWordId() {
-        console.log("clicked");
         if (question === answer.turkish) {
             setWordID(answer.id)
         }

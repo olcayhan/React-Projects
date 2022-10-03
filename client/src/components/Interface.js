@@ -18,7 +18,6 @@ export default function Interface({ storages }) {
     }, [])
 
 
-
     useEffect(() => {
         localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(card))
     }, [card])
@@ -27,8 +26,7 @@ export default function Interface({ storages }) {
     function deleteCard(cardSp) {
         //const newCard = card.filter((item) => item.id !== cardSp.id);
         let index = card.indexOf(cardSp)
-        card[index] = "a";
-        console.log(cardSp);
+        card[index] = "";
         setCard(card)
         localStorage.setItem(storages[index], JSON.stringify([]))
     }
