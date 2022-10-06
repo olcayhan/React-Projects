@@ -1,0 +1,32 @@
+#learnBtn {
+    margin: -250px 1020px;
+    width: 130px;
+    height: 130px;
+    position: absolute;
+}
+
+#testBtn {
+    margin: -250px 1160px;
+    width: 130px;
+    height: 130px;
+    position: absolute;
+}
+
+#buttonCard {
+    padding-left: 100px;
+    padding-right: 120px;
+}
+
+#wordGenerate {
+    max-width: 18rem;
+    margin-left: 600px;
+    margin-top: 50px;
+}
+
+#wordShow {
+    width: 450px;
+    margin: 50px 520px;
+    text-align: center;
+    position: absolute;
+
+}

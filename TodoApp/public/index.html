@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <script src="https://cdn.socket.io/4.5.0/socket.io.min.js"
+        integrity="sha384-7EyYLQZgWBi67fBtVxw60/OWl1kjsfrPFcaU0pp0nAh+i8FD068QogUvg85Ewy1k"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+
+    <div class="card text-bg-light" id="wordGenerate">
+        <div class="card-header mx-auto">Wordlette</div>
+        <div class="card-body">
+            <form onsubmit="main()" id="form">
+
+                <div class="form-group m-3">
+                    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="English Word">
+                </div>
+                <div class="form-group m-3">
+                    <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Turkish Word">
+                </div>
+
+                <button class="btn btn-dark" id="buttonCard"> Save </button>
+            </form>
+        </div>
+    </div>
+
+    <table class="table table-light table-hover" id="wordShow">
+        <thead>
+            <tr>
+                <th scope="col">English</th>
+                <th scope="col">Turkish</th>
+            </tr>
+        </thead>
+        <tbody id="Words">
+
+
+
+
+        </tbody>
+
+    </table>
+
+    <button class="btn btn-dark" id="learnBtn">Learn</button>
+
+    <button class="btn btn-danger" id="testBtn">Test</button>
+
+
+
+
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>
