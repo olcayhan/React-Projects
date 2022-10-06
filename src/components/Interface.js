@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react'
 import CardAdd from './CardAdd'
 import { v4 as uuidv4 } from 'uuid';
 
-const LOCAL_STORAGE_KEY = "Card.app" // don't change if you want to keep your data
+const LOCAL_STORAGE_KEY = "Card.app"
 
 
 export default function Interface({ storages }) {
@@ -10,7 +10,13 @@ export default function Interface({ storages }) {
     let count = 1;
 
     const cardNames = useRef()
-    const storedData = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY))
+
+    let storedData = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
+
+    if (storedData === null) {
+        storedData = []
+    }
+    
     const [card, setCard] = useState(storedData)
 
     useEffect(() => {
