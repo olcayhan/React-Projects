@@ -16,7 +16,10 @@ app.use("/users", userRouter)
 
 // connection to the database
 app.listen(5000, () => {
-    mongoose.connect(process.env.DB_CONNECTION_STRING)
+    mongoose.connect(process.env.DB_CONNECTION_STRING, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true
+    })
         .then(() => console.log('connected to db'))
         .catch((err) => console.log(err))
 })

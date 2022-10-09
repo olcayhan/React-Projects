@@ -3,6 +3,7 @@ const User = require("../models/userModel.js")
 const bcryptjs = require("bcryptjs")
 const router = express.Router()
 
+let mail;
 router.post("/signup", async (req, res) => {
     try {
         console.log(req.body);
@@ -31,9 +32,11 @@ router.post("/signup", async (req, res) => {
 router.post("/signin", async (req, res) => {
     try {
         console.log(req.body);
+
         const { email, password } = req.body
         const user = await User.findOne({ email })
         if (!user) return res.status(400).json({ message: "user does not exist" })
+        mail = email
 
         const isPasswordCorrect = await bcryptjs.compare(password, user.password)
         if (!isPasswordCorrect) return res.status(400).json({ message: "Wrong Password" })
@@ -48,19 +51,21 @@ router.post("/signin", async (req, res) => {
 
 router.post("/home", async (req, res) => {
     try {
-        
+
         const { email, todos } = req.body
-        console.log(req.body);
-        const filter = { email:email}
-        const options = { upsert: true };
+
+        // Update the database
+        const filter = { email: email }
+
         const updateDoc = {
             $set: {
-              todos: todos
+                todos: todos
             },
-          };
+        };
 
-          const result = await User.updateOne(filter, updateDoc, options);
-        
+
+        const result = await User.updateOne(filter, updateDoc);
+
         return res.status(200).json(req.body)
 
     } catch (err) {
@@ -69,7 +74,15 @@ router.post("/home", async (req, res) => {
 
 })
 
+router.get("/home", async (req, res) => {
+    try {
+        const other = await User.find({ email: mail });
+        return res.status(200).json({ other })
 
+    } catch (err) {
+        return res.status(400).json({ message: err.message })
+    }
+})
 
 module.exports = router
 

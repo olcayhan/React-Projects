@@ -7,6 +7,7 @@ import SignUpScreen from "./Screens/SignUpScreen";
 import { useState } from "react";
 import TodoList from "./Screens/TodoList";
 
+
 export default function App() {
 
   const [user, setUser] = useState(null)
@@ -17,9 +18,10 @@ export default function App() {
       <main className="py-3">
         <Container>
           <Routes>
+
             <Route path="/signin" element={<AuthScreen setUser={setUser} exact />} />
             <Route path="/signup" element={<SignUpScreen />} />
-            <Route path="/home" element={<TodoList user={user}/>} />
+            <Route path="/home" element={<TodoList user={user} />} />
 
           </Routes>
         </Container>

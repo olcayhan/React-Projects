@@ -1,15 +1,18 @@
 import { useEffect } from 'react';
 import { Container, Nav, Navbar, NavDropdown, Button } from 'react-bootstrap';
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
 
 
 export default function Header({ user, setUser }) {
-  useEffect(()=>{
-    if(localStorage.getItem("user") && !user){
+
+  useEffect(() => {
+    if (localStorage.getItem("user") && !user) {
       setUser(JSON.parse(localStorage.getItem("user")))
     }
-  },[user])
+  }, [user]);
+
+  const navigate = useNavigate()
   return (
     <Navbar bg="primary" expand="lg">
       <Container>
@@ -36,8 +39,9 @@ export default function Header({ user, setUser }) {
             onClick={(e) => {
               localStorage.removeItem("user")
               setUser(null)
+              navigate("/signin")
             }}> Çıkış yap</Button> :
-            <Button variant='outline-light'>
+            <Button variant='outline-light' >
               <Link className='text-white text-decoration-none' to="/signin">
                 Giriş yap
               </Link>
