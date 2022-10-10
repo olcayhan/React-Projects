@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react'
 import { Form, Button, Container, Row, Col } from 'react-bootstrap'
 import Todo from '../components/Todo'
+import StartScreen from '../components/StartScreen'
 import { addTodo, getTodo } from '../axios'
 import { v4 as uuidv4 } from 'uuid';
 
@@ -40,41 +41,45 @@ export default function TodoList({ user }) {
         setTodos(newTodos)
     }
 
-
+    function addTodo() {
+        const name = todoNameRef.current.value
+        if (name === "") return
+        setTodos(prevTodos => {
+            return [...prevTodos, { id: uuidv4(), name: name, complete: false }]
+        })
+        todoNameRef.current.value = null
+    }
 
     return (
         <Container className='m-3'>
-            <Row className='justify-content-center'>
-                <Col xs={12} md={6}>
-                    <Form.Control ref={todoNameRef} type="text" />
 
-                    <Button onClick={(e) => {
+            <Col>
 
-                        const name = todoNameRef.current.value
-                        if (name === "") return
-                        setTodos(prevTodos => {
-                            return [...prevTodos, { id: uuidv4(), name: name, complete: false }]
-                        })
-                        todoNameRef.current.value = null
-
-                    }} >Add Todo</Button>
+                {/* show todos in here */}
+                {todos.length !== 0 ? todos.map(todo => {
+                    return <Todo toggleTodo={toggleTodo} todo={todo} />
+                }) : <StartScreen />}
 
 
-                    <Button onClick={(e) => {
+                <Form.Group className='fixed-bottom d-flex flex-row' id='todo--footer'>
+
+
+                    <button className='todo-addbtn' onClick={addTodo} ></button>
+
+
+                    <input className='todo--input' ref={todoNameRef} type="text" placeholder='Add a task' onKeyPress={(e) => {
+                        if (e.key === "Enter") addTodo();
+                    }} />
+
+                    <button className="todo--deletebtn" onClick={(e) => {
                         const newTodos = todos.filter(todo => todo.complete === false)
                         setTodos(newTodos)
-                    }} >Clear Completed Todos</Button>
+                    }} ><i className="fa-sharp fa-solid fa-trash"></i></button>
 
+                </Form.Group>
 
-                    <div> {todos.filter(todo => !todo.complete).length} left to do</div>
-                </Col>
-            </Row>
+            </Col>
 
-
-            {todos.map(todo => {
-                return <Todo toggleTodo={toggleTodo} todo={todo} />
-            })}
-
-        </Container>
+        </Container >
     )
 }

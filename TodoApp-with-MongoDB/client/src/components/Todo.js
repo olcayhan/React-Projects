@@ -1,4 +1,5 @@
 import React from 'react'
+import { Col, Row } from 'react-bootstrap'
 
 export default function Todo({ todo, toggleTodo }) {
 
@@ -8,13 +9,11 @@ export default function Todo({ todo, toggleTodo }) {
     }
 
     return (
-        <div>
-            <label>
-                <input type="checkbox" checked={todo.complete} onChange={handleTodoClick} />
-                {todo.name}
+        <Col className='todo--todos' >
+            <input type="checkbox" checked={todo.complete} onChange={handleTodoClick} />
+            {todo.name}
 
-            </label>
-        </div>
+        </Col >
     )
 }
 
