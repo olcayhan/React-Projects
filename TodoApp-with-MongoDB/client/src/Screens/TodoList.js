@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react'
-import { Form, Button, Container, Row, Col } from 'react-bootstrap'
+import { Form, Container } from 'react-bootstrap'
 import Todo from '../components/Todo'
 import StartScreen from '../components/StartScreen'
 import { addTodo, getTodo } from '../axios'
@@ -52,16 +52,38 @@ export default function TodoList({ user }) {
         todoNameRef.current.value = null
     }
 
+
+    let lengthOfCompleteTodo = todos.filter(todo => todo.complete === true)
+
     return (
         <Container className='m-2'>
 
 
             {/* show todos in here */}
             {todos.length !== 0 ? todos.map(todo => {
-                return <Todo toggleTodo={toggleTodo} todo={todo} />
+                return !todo.complete ?
+                    <Todo toggleTodo={toggleTodo} todo={todo} /> : <span></span>
             }) : <StartScreen />}
 
 
+
+            <div className='mt-5'>
+                {
+                    lengthOfCompleteTodo.length !== 0 ? <button className='todo--completedbtn'> v Completed {lengthOfCompleteTodo.length} </button> : <span></span>
+                }
+
+                <div style={{ visibility: "visible" }}>
+
+                    {
+                        lengthOfCompleteTodo.length !== 0 ?
+
+                            todos.map((item) => {
+                                return item.complete === true ? <Todo toggleTodo={toggleTodo} todo={item} /> : <span></span>
+                            })
+                            : <span></span>
+                    }
+                </div>
+            </div>
             <Form.Group className='fixed-bottom d-flex flex-row' id='todo--footer'>
 
 

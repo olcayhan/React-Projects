@@ -39,14 +39,16 @@ body {
     border: none;
 
 }
-.todo--completebtn i{
+
+.todo--completebtn i {
     position: absolute;
-    margin:-4px -5px;
+    margin: -4px -5px;
     font-size: 10px;
-    visibility:hidden
+    visibility: hidden
 }
-.todo--completebtn:hover i{
-    visibility:visible
+
+.todo--completebtn:hover i {
+    visibility: visible
 }
 
 
@@ -114,4 +116,12 @@ body {
     text-align: center;
     color: #fff;
 
+}
+
+
+.todo--completedbtn {
+    background-color: #fff;
+    border-style: none;
+    margin-bottom: 10px;
+    opacity: 0.9;
 }

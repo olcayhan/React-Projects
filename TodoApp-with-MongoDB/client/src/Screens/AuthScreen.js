@@ -26,12 +26,12 @@ export default function AuthScreen({ setUser }) {
                             })
                             .catch((err) => { console.log(err.response.data.message); })
                     }}>
-                        <Form.Group className='mb-3' controlId='formBasicEmail'>
+                        <Form.Group className='mb-3 text-white' controlId='formBasicEmail'>
                             <Form.Label>Email address</Form.Label>
                             <Form.Control onChange={(e) => setFormData({ ...formData, email: e.target.value })} type='email' placeholder='Enter email' />
                         </Form.Group>
-
-                        <Form.Group className='mb-3' controlId='formBasicPassword'>
+ 
+                        <Form.Group className='mb-3 text-white' controlId='formBasicPassword'>
                             <Form.Label>Password</Form.Label>
                             <Form.Control onChange={(e) => setFormData({ ...formData, password: e.target.value })} type='password' placeholder='Password' />
                         </Form.Group>
@@ -40,7 +40,7 @@ export default function AuthScreen({ setUser }) {
                             <Button disabled={formData.email === "" || formData.password === ""} type='submit' variant='primary' size='lg'>
                                 Sign In
                             </Button>
-                            <Form.Text className='text-center mt-2'>
+                            <Form.Text className='text-center mt-2 text-white'>
                                 Don't have an Account ?
                                 <Link to="/signup">Sign Up</Link>
                             </Form.Text>
