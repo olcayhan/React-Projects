@@ -12,31 +12,26 @@ export default function TodoList({ user }) {
 
     useEffect(() => {
 
-
         getTodo()
             .then((res) => {
                 setTodos([...res.data.other[0].todos])
             })
             .catch((err) => { console.log(err.message) });
 
-
-
     }, [0])
+
+
+    let constTodo = {
+        email: user,
+        todos: todos
+    }
 
 
     useEffect(() => {
         if (user !== null) {
-
-
-
-            addTodo({
-                email: user,
-                todos: todos
-            })
+            addTodo(constTodo)
                 .then((res) => { console.log("succes") })
                 .catch((err) => console.log(err))
-
-
         }
     }, [todos])
 
