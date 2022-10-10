@@ -5,22 +5,57 @@ body {
 }
 
 .todo--todos {
-    width: 100%;
+    position: relative;
+    display: flex;
+    width: 96.5%;
     height: 50px;
     margin-bottom: 3px;
     background-color: #fff;
     border-radius: 6px;
     opacity: 0.9;
+    justify-content: space-between;
 }
-.todo--todos:hover{
+
+.todo--todos:hover {
     opacity: 0.85;
 }
+
+.todo--completebtn {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin-top: 15px;
+    margin-left: 8px;
+}
+
+.todo--text {
+    margin: 10px 15px;
+}
+
+.todo--important {
+    background-color: #fff;
+    margin-left: auto;
+    margin-right: 8px;
+    border: none;
+
+}
+.todo--completebtn i{
+    position: absolute;
+    margin:-4px -5px;
+    font-size: 10px;
+    visibility:hidden
+}
+.todo--completebtn:hover i{
+    visibility:visible
+}
+
+
 
 #todo--footer {
     width: 80%;
     height: 50px;
     margin-bottom: 60px;
-    margin-left: 120px;
+    margin-left: 9%;
     background-color: #fff;
     border-radius: 6px;
 
@@ -50,7 +85,7 @@ body {
 }
 
 .startscreen {
-    background-image: linear-gradient(#F8EDE3, #562B08);
+    background-image: linear-gradient(#fff, #562B08);
     width: 240px;
     height: 240px;
     border-radius: 5px;
@@ -78,6 +113,5 @@ body {
     font-size: 12px;
     text-align: center;
     color: #fff;
-
 
 }

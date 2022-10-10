@@ -4,16 +4,17 @@ import { Col, Row } from 'react-bootstrap'
 export default function Todo({ todo, toggleTodo }) {
 
 
-    function handleTodoClick() {
+    function completeTodo() {
         toggleTodo(todo.id)
     }
 
     return (
-        <Col className='todo--todos' >
-            <input type="checkbox" checked={todo.complete} onChange={handleTodoClick} />
-            {todo.name}
 
-        </Col >
+        <div className='todo--todos' >
+            <button type="checkbox" className='todo--completebtn' onClick={completeTodo}><i className="fa fa-check" aria-hidden="true"></i></button>
+            <span className='todo--text'>{todo.name}</span>
+            <button className='todo--important'><i className="fa-regular fa-star"></i></button>
+        </div >
     )
 }
 

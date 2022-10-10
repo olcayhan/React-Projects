@@ -10,12 +10,8 @@ export default function TodoList({ user }) {
     const [todos, setTodos] = useState([])
     const todoNameRef = useRef()
 
-    let userTodo = {
-        email: user,
-        todos: todos
-    }
-
     useEffect(() => {
+
 
         getTodo()
             .then((res) => {
@@ -23,12 +19,24 @@ export default function TodoList({ user }) {
             })
             .catch((err) => { console.log(err.message) });
 
+
+
     }, [0])
 
 
     useEffect(() => {
         if (user !== null) {
-            addTodo(userTodo).then((res) => { console.log("succes") }).catch((err) => console.log(err))
+
+
+
+            addTodo({
+                email: user,
+                todos: todos
+            })
+                .then((res) => { console.log("succes") })
+                .catch((err) => console.log(err))
+
+
         }
     }, [todos])
 
@@ -40,10 +48,9 @@ export default function TodoList({ user }) {
         todo.complete = !todo.complete
         setTodos(newTodos)
     }
-
-    function addTodo() {
+    function addNewTodo() {
         const name = todoNameRef.current.value
-        if (name === "") return
+        if (name === "") return;
         setTodos(prevTodos => {
             return [...prevTodos, { id: uuidv4(), name: name, complete: false }]
         })
@@ -51,34 +58,33 @@ export default function TodoList({ user }) {
     }
 
     return (
-        <Container className='m-3'>
-
-            <Col>
-
-                {/* show todos in here */}
-                {todos.length !== 0 ? todos.map(todo => {
-                    return <Todo toggleTodo={toggleTodo} todo={todo} />
-                }) : <StartScreen />}
+        <Container className='m-2'>
 
 
-                <Form.Group className='fixed-bottom d-flex flex-row' id='todo--footer'>
+            {/* show todos in here */}
+            {todos.length !== 0 ? todos.map(todo => {
+                return <Todo toggleTodo={toggleTodo} todo={todo} />
+            }) : <StartScreen />}
 
 
-                    <button className='todo-addbtn' onClick={addTodo} ></button>
+            <Form.Group className='fixed-bottom d-flex flex-row' id='todo--footer'>
 
 
-                    <input className='todo--input' ref={todoNameRef} type="text" placeholder='Add a task' onKeyPress={(e) => {
-                        if (e.key === "Enter") addTodo();
-                    }} />
+                <button className='todo-addbtn' onClick={addNewTodo} ></button>
 
-                    <button className="todo--deletebtn" onClick={(e) => {
-                        const newTodos = todos.filter(todo => todo.complete === false)
-                        setTodos(newTodos)
-                    }} ><i className="fa-sharp fa-solid fa-trash"></i></button>
 
-                </Form.Group>
+                <input className='todo--input' ref={todoNameRef} type="text" placeholder='Add a task' onKeyPress={(e) => {
+                    if (e.key === "Enter") addNewTodo();
+                }} />
 
-            </Col>
+                <button className="todo--deletebtn" onClick={(e) => {
+                    const newTodos = todos.filter(todo => todo.complete === false)
+                    setTodos(newTodos)
+                }} ><i className="fa-sharp fa-solid fa-trash"></i></button>
+
+            </Form.Group>
+
+
 
         </Container >
     )
