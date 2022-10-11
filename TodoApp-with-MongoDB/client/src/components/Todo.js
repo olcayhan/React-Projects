@@ -17,9 +17,9 @@ export default function Todo({ todo, toggleTodo, completeControl, importantTodos
                 type="checkbox"
                 className='todo--completebtn'
                 onClick={completeTodo}
-                style={(todo.complete && completeControl) ? {backgroundColor:"#748DA6", color:"white", border:"none"} : {}}>
+                style={(todo.complete && completeControl) ? { backgroundColor: "#748DA6", color: "white", border: "none" } : {}}>
 
-                <i className="fa fa-check" style={(todo.complete && completeControl) ? { visibility: "visible"} : {}} aria-hidden="true"></i>
+                <i className="fa fa-check" style={(todo.complete && completeControl) ? { visibility: "visible" } : {}} aria-hidden="true"></i>
 
             </button>
 
