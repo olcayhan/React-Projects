@@ -43,17 +43,26 @@ export default function TodoList({ user }) {
         todo.complete = !todo.complete
         setTodos(newTodos)
     }
+
+    function importantTodos(id) {
+        const newTodos = [...todos]
+        console.log(newTodos);
+        const todo = newTodos.find(todo => todo.id === id)
+        todo.important = !todo.important
+        setTodos(newTodos)
+    }
     function addNewTodo() {
         const name = todoNameRef.current.value
         if (name === "") return;
         setTodos(prevTodos => {
-            return [...prevTodos, { id: uuidv4(), name: name, complete: false }]
+            return [...prevTodos, { id: uuidv4(), name: name, complete: false, important: false }]
         })
         todoNameRef.current.value = null
     }
 
 
-    let lengthOfCompleteTodo = todos.filter(todo => todo.complete === true)
+    let lengthOfCompleteTodo = todos.filter(todo => todo.complete === true);
+    const [completeControl, setCompleteControl] = useState(true)
 
     return (
         <Container className='m-2'>
@@ -62,23 +71,35 @@ export default function TodoList({ user }) {
             {/* show todos in here */}
             {todos.length !== 0 ? todos.map(todo => {
                 return !todo.complete ?
-                    <Todo toggleTodo={toggleTodo} todo={todo} /> : <span></span>
+                    <Todo toggleTodo={toggleTodo} todo={todo} completeControl={completeControl} importantTodos={importantTodos}/> : <span></span>
             }) : <StartScreen />}
 
 
 
-            <div className='mt-5'>
+            <div className='mt-4'>
                 {
-                    lengthOfCompleteTodo.length !== 0 ? <button className='todo--completedbtn'> v Completed {lengthOfCompleteTodo.length} </button> : <span></span>
+                    lengthOfCompleteTodo.length !== 0 ?
+                        <button className='todo--completedbtn'
+                            onClick={() => {
+                                if (completeControl) setCompleteControl(false)
+                                else setCompleteControl(true)
+                                console.log(completeControl);
+                            }}>
+
+                            <i className="fa fa-angle-down me-2" style={completeControl ? { transform: "rotate(0deg)", transition: "all 0.3s ease" } : { transform: "rotate(-90deg)", transition: "all 0.3s ease" }}></i>
+                            Completed
+                            <span className='ms-2 me-2'>{lengthOfCompleteTodo.length}</span>
+
+                        </button> : <span></span>
                 }
 
-                <div style={{ visibility: "visible" }}>
+                <div style={(completeControl) ? { visibility: "visible" } : { visibility: "hidden" }}>
 
                     {
-                        lengthOfCompleteTodo.length !== 0 ?
 
+                        lengthOfCompleteTodo.length !== 0 ?
                             todos.map((item) => {
-                                return item.complete === true ? <Todo toggleTodo={toggleTodo} todo={item} /> : <span></span>
+                                return item.complete === true ? <Todo toggleTodo={toggleTodo} todo={item} completeControl={completeControl} importantTodos={importantTodos} /> : <span></span>
                             })
                             : <span></span>
                     }
@@ -100,9 +121,6 @@ export default function TodoList({ user }) {
                 }} ><i className="fa-sharp fa-solid fa-trash"></i></button>
 
             </Form.Group>
-
-
-
         </Container >
     )
 }

@@ -7,13 +7,14 @@ body {
 .todo--todos {
     position: relative;
     display: flex;
+    justify-content: space-between;
     width: 96.5%;
     height: 50px;
     margin-bottom: 3px;
     background-color: #fff;
     border-radius: 6px;
     opacity: 0.9;
-    justify-content: space-between;
+
 }
 
 .todo--todos:hover {
@@ -122,6 +123,12 @@ body {
 .todo--completedbtn {
     background-color: #fff;
     border-style: none;
+    height: 30px;
+    border-radius: 5px;
     margin-bottom: 10px;
+    opacity: 0.7;
+}
+
+.todo--completedbtn:hover {
     opacity: 0.9;
 }

@@ -1,10 +1,13 @@
 import React from 'react'
 
-export default function Todo({ todo, toggleTodo }) {
+export default function Todo({ todo, toggleTodo, completeControl, importantTodos }) {
 
 
     function completeTodo() {
         toggleTodo(todo.id)
+    }
+    function importantTodo() {
+        importantTodos(todo.id)
     }
 
     return (
@@ -13,14 +16,20 @@ export default function Todo({ todo, toggleTodo }) {
             <button
                 type="checkbox"
                 className='todo--completebtn'
-                
-                onClick={completeTodo}>
-                <i className="fa fa-check" style={(todo.complete)?{ visibility: "visible" }:{visibility: "hidden"}} aria-hidden="true"></i>
+                onClick={completeTodo}
+                style={(todo.complete && completeControl) ? {backgroundColor:"#748DA6", color:"white", border:"none"} : {}}>
+
+                <i className="fa fa-check" style={(todo.complete && completeControl) ? { visibility: "visible"} : {}} aria-hidden="true"></i>
+
             </button>
 
-            <span className='todo--text' style={(todo.complete)?{ textDecoration:"line-through" }:{textDecoration:"default"}} >{todo.name}</span>
+            <span className='todo--text' style={(todo.complete) ? { textDecoration: "line-through" } : { textDecoration: "default" }} >{todo.name}</span>
 
-            <button className='todo--important'><i className="fa-regular fa-star"></i></button>
+            <button className='todo--important' onClick={importantTodo}>
+                {(!todo.important) ?
+                    <i className="fa-regular fa-star" style={{ visibility: "visible" }} ></i> :
+                    <i className="fa-solid fa-star" style={{ visibility: "visible", color: "#748DA6" }} ></i>}
+            </button>
 
         </div >
     )
