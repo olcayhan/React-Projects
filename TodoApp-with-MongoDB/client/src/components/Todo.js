@@ -27,8 +27,8 @@ export default function Todo({ todo, toggleTodo, completeControl, importantTodos
 
             <button className='todo--important' onClick={importantTodo}>
                 {(!todo.important) ?
-                    <i className="fa-regular fa-star" style={{ visibility: "visible" }} ></i> :
-                    <i className="fa-solid fa-star" style={{ visibility: "visible", color: "#748DA6" }} ></i>}
+                    <i className="fa-regular fa-star"></i> :
+                    <i className="fa-solid fa-star" style={{color: "#748DA6" }} ></i>}
             </button>
 
         </div >
