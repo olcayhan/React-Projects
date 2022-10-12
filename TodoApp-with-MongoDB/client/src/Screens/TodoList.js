@@ -55,7 +55,7 @@ export default function TodoList({ user }) {
         const name = todoNameRef.current.value
         if (name === "") return;
         setTodos(prevTodos => {
-            return [...prevTodos, { id: uuidv4(), name: name, complete: false, important: false }]
+            return [{ id: uuidv4(), name: name, complete: false, important: false }, ...prevTodos]
         })
         todoNameRef.current.value = null
     }
@@ -64,16 +64,20 @@ export default function TodoList({ user }) {
     let lengthOfCompleteTodo = todos.filter(todo => todo.complete === true);
     const [completeControl, setCompleteControl] = useState(true)
 
+
+    todos.sort(function (x, y) {
+        return (x.important === y.important) ? 0 : x.important ? -1 : 1;
+
+    });
+
+
     return (
         <Container className='m-2'>
 
-
-            {/* show todos in here */}
             {todos.length !== 0 ? todos.map(todo => {
                 return !todo.complete ?
-                    <Todo toggleTodo={toggleTodo} todo={todo} completeControl={completeControl} importantTodos={importantTodos}/> : <span></span>
+                    <Todo toggleTodo={toggleTodo} todo={todo} completeControl={completeControl} importantTodos={importantTodos} /> : <span></span>
             }) : <StartScreen />}
-
 
 
             <div className='mt-4'>
@@ -96,13 +100,13 @@ export default function TodoList({ user }) {
                 <div style={(completeControl) ? { visibility: "visible" } : { visibility: "hidden" }}>
 
                     {
-
                         lengthOfCompleteTodo.length !== 0 ?
                             todos.map((item) => {
                                 return item.complete === true ? <Todo toggleTodo={toggleTodo} todo={item} completeControl={completeControl} importantTodos={importantTodos} /> : <span></span>
                             })
                             : <span></span>
                     }
+                    
                 </div>
             </div>
             <Form.Group className='fixed-bottom d-flex flex-row' id='todo--footer'>
