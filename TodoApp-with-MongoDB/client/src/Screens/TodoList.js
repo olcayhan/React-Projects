@@ -72,7 +72,7 @@ export default function TodoList({ user }) {
 
 
     return (
-        <Container className='m-2'>
+        <div className='todos-main'>
 
             {todos.length !== 0 ? todos.map(todo => {
                 return !todo.complete ?
@@ -109,7 +109,7 @@ export default function TodoList({ user }) {
                     
                 </div>
             </div>
-            <Form.Group className='fixed-bottom d-flex flex-row' id='todo--footer'>
+            <div className='fixed-bottom d-flex flex-row' id='todo--footer'>
 
 
                 <button className='todo-addbtn' onClick={addNewTodo} ></button>
@@ -124,7 +124,7 @@ export default function TodoList({ user }) {
                     setTodos(newTodos)
                 }} ><i className="fa-sharp fa-solid fa-trash"></i></button>
 
-            </Form.Group>
-        </Container >
+            </div>
+        </div >
     )
 }

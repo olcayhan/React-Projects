@@ -19,7 +19,7 @@ export default function App() {
         <Container>
           <Routes>
 
-            <Route path="/signin" element={<AuthScreen setUser={setUser} exact />} />
+            <Route path="/signin" element={<AuthScreen setUser={setUser} />} />
             <Route path="/signup" element={<SignUpScreen />} />
             <Route path="/home" element={<TodoList user={user} />} />
 
