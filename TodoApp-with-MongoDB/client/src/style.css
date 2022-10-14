@@ -122,10 +122,10 @@ body {
 }
 
 .startscreen {
-    background-image: linear-gradient(#fff, #562B08);
+    background-image: linear-gradient(#fff, #EC994B);
     width: 240px;
     height: 240px;
-    border-radius: 5px;
+    border-radius: 10px;
     position: absolute;
     top: 30%;
     left: 45%;
@@ -147,6 +147,39 @@ body {
 }
 
 .startscreen p {
+    font-size: 12px;
+    text-align: center;
+    color: #fff;
+
+}
+
+
+.startimp {
+    background-image: linear-gradient(#fff, #EB1D36);
+    width: 240px;
+    height: 240px;
+    border-radius: 10px;
+    position: absolute;
+    top: 30%;
+    left: 45%;
+    margin: -35px 0 0 100px;
+}
+
+.startimp img {
+    width: 120px;
+    margin-left: 60px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.startimp h4 {
+    font-size: 18px;
+    color: #fff;
+    text-align: center;
+    font-weight: 700;
+}
+
+.startimp p {
     font-size: 12px;
     text-align: center;
     color: #fff;
@@ -255,18 +288,43 @@ body {
 }
 
 .authscreen {
-    margin-top: 5%;
-    margin-left: 18%;
-    width: auto;
-    height: 600px;
+    margin-top: 15%;
+    margin-left: 30%;
+    width: 60%;
+    height: 300px;
     text-align: justify;
+    background-image: linear-gradient(#fff, #EC994B);
+    ;
+    border-radius: 50px;
 
 }
 
 .signup-screen {
     margin-top: 5%;
-    margin-left: 18%;
-    width: auto;
+    margin-left: 30%;
+    width: 60%;
     height: 600px;
-    text-align: justify;
+    background-image: linear-gradient(#fff, #EC994B);
+    ;
+    border-radius: 50px;
+}
+
+.little-signin {
+    text-decoration: none;
+    color: white;
+    margin-left: 10px;
+}
+
+.little-signin:hover {
+    color: #555;
+}
+
+.little-signup {
+    text-decoration: none;
+    color: white;
+    margin-left: 10px;
+}
+
+.little-signup:hover {
+    color: #555;
 }

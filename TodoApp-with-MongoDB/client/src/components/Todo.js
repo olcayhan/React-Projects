@@ -2,10 +2,12 @@ import React from 'react'
 
 export default function Todo({ todo, toggleTodo, completeControl, importantTodos }) {
 
-
+    // a function change the todo complete
     function completeTodo() {
         toggleTodo(todo.id)
     }
+
+    // a function change the todo important
     function importantTodo() {
         importantTodos(todo.id)
     }
@@ -28,7 +30,7 @@ export default function Todo({ todo, toggleTodo, completeControl, importantTodos
             <button className='todo--important' onClick={importantTodo}>
                 {(!todo.important) ?
                     <i className="fa-regular fa-star"></i> :
-                    <i className="fa-solid fa-star" style={{color: "#748DA6" }} ></i>}
+                    <i className="fa-solid fa-star" style={{ color: "#748DA6" }} ></i>}
             </button>
 
         </div >

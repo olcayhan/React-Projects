@@ -1,5 +1,0 @@
-POST http://localhost:5000/users/signup
-Content-Type: application/json
-###
-
-GET http://localhost:3000/musteri

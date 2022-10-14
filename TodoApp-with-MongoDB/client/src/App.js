@@ -1,5 +1,5 @@
+// import needed library
 import Header from "./components/Header";
-
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import { Container } from "react-bootstrap"
 import AuthScreen from "./Screens/AuthScreen";
@@ -11,8 +11,9 @@ import Important from "./Screens/Important";
 
 export default function App() {
 
+  // set user objects
   const [user, setUser] = useState(null);
-  const [todosApp, setTodosApp] = useState();
+
   return (
 
     <Router>

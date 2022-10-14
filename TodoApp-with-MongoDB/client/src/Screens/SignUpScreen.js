@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Container, Row, Col, Form, Button } from 'react-bootstrap'
+import { Row, Col, Form, Button } from 'react-bootstrap'
 import { Link, useNavigate } from "react-router-dom"
 import { register } from '../axios'
 
@@ -11,7 +11,7 @@ export default function SignUpScreen() {
         password: "",
         phoneNumber: "",
         email: "",
-        todos:[]
+        todos: []
     })
 
     const [disabled, setDisabled] = useState(true)
@@ -24,7 +24,7 @@ export default function SignUpScreen() {
             formData.email.length >= 5
         ) {
             setDisabled(false)
-        }else{
+        } else {
             setDisabled(true)
         }
     }, [formData])
@@ -42,7 +42,7 @@ export default function SignUpScreen() {
                             })
                             .catch((err) => { console.log(err); })
                     }}>
-                        <Form.Group className='mb-3' controlId='formBasicEmail'>
+                        <Form.Group className='mb-3 mt-4' controlId='formBasicEmail'>
                             <Form.Label>Full Name</Form.Label>
                             <Form.Control onChange={(e) => setFormData({ ...formData, fullname: e.target.value })} type='text' placeholder='Enter name' />
                         </Form.Group>
@@ -68,12 +68,12 @@ export default function SignUpScreen() {
                         </Form.Group>
 
                         <Form.Group className='d-grid'>
-                            <Button disabled={disabled} type='submit' variant='primary' size='lg' className='mt-4'>
-                                Sing Up
+                            <Button disabled={disabled} type='submit' variant='primary' size='lg' style={{ backgroundColor: "#F15412", border: "none", marginTop: "15px" }}>
+                                Sign Up
                             </Button>
-                            <Form.Text className='text-center mt-2'>
+                            <Form.Text className='text-center text-dark mt-2'>
                                 Do you have an Account ?
-                                <Link to="/signin">Sign In</Link>
+                                <Link to="/signin" className='little-signin'>Sign In</Link>
                             </Form.Text>
 
                         </Form.Group>
@@ -81,6 +81,6 @@ export default function SignUpScreen() {
                     </Form>
                 </Col>
             </Row>
-        </div>
+        </div >
     )
 }

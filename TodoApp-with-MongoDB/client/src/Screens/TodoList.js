@@ -1,5 +1,4 @@
 import React, { useState, useRef, useEffect } from 'react'
-import { Form, Container } from 'react-bootstrap'
 import Todo from '../components/Todo'
 import StartScreen from '../components/StartScreen'
 import { addTodo, getTodo } from '../axios'
@@ -36,7 +35,7 @@ export default function TodoList({ user }) {
     }, [todos])
 
 
-
+    // a function for toggle todos
     function toggleTodo(id) {
         const newTodos = [...todos]
         const todo = newTodos.find(todo => todo.id === id)
@@ -44,6 +43,7 @@ export default function TodoList({ user }) {
         setTodos(newTodos)
     }
 
+    // a function for toggle todos relating to important
     function importantTodos(id) {
         const newTodos = [...todos]
         console.log(newTodos);
@@ -51,6 +51,8 @@ export default function TodoList({ user }) {
         todo.important = !todo.important
         setTodos(newTodos)
     }
+
+    // a function for add new todo in todo list
     function addNewTodo() {
         const name = todoNameRef.current.value
         if (name === "") return;
@@ -60,11 +62,13 @@ export default function TodoList({ user }) {
         todoNameRef.current.value = null
     }
 
-
+    // length of complete todo list for know completetodolength
     let lengthOfCompleteTodo = todos.filter(todo => todo.complete === true);
+
+    // complete control for todo list
     const [completeControl, setCompleteControl] = useState(true)
 
-
+    // sorting of todo list for important
     todos.sort(function (x, y) {
         return (x.important === y.important) ? 0 : x.important ? -1 : 1;
 
