@@ -6,6 +6,7 @@ body {
 }
 
 .todos-main {
+    margin-top: 5%;
     margin-left: 18%;
     width: auto;
     height: 600px;
@@ -168,10 +169,12 @@ body {
 
 
 .header-home-section {
+    height: 40px;
     text-decoration: none;
-    margin-top: 60px;
     font-size: 18px;
     color: #111;
+    padding: 10px;
+    border-radius: 10px;
 }
 
 .header-home-section i {
@@ -182,7 +185,7 @@ body {
 .header-home-section:hover {
     opacity: 0.8;
     color: #111;
-    background-color: #555;
+    background-color: #CFD2CF;
 }
 
 .header-important-section {
@@ -190,6 +193,9 @@ body {
     height: 40px;
     font-size: 18px;
     color: #111;
+    padding: 10px;
+    border-radius: 10px;
+
 
 }
 
@@ -199,19 +205,68 @@ body {
 }
 
 .header-important-section:hover {
-    opacity: 0.8;
+    background-color: #CFD2CF;
     color: #111;
 }
 
 .header-button {
+
     height: 50px;
     background-color: #555;
-    width: 200px;
-    margin-left: 20px;
+    width: 85%;
+    margin-left: 8%;
     font-size: 18px;
+    margin-top: auto;
+    margin-bottom: 20px;
+    border: none;
+    color: #fff;
+
 }
 
 .header-button:hover {
     opacity: 0.7;
-    color: #111;
+}
+
+.header--head {
+    width: 75%;
+    height: 5%;
+    background-color: #fff;
+    margin-top: 15%;
+    margin-left: 10%;
+    opacity: 0.8;
+    text-align: center;
+}
+
+.header--head p {
+    font-weight: 600;
+    margin-top: 7px;
+}
+
+
+.important-main {
+    margin-top: 5%;
+
+    margin-left: 18%;
+    width: auto;
+    height: 600px;
+    overflow: auto;
+    text-align: justify;
+
+}
+
+.authscreen {
+    margin-top: 5%;
+    margin-left: 18%;
+    width: auto;
+    height: 600px;
+    text-align: justify;
+
+}
+
+.signup-screen {
+    margin-top: 5%;
+    margin-left: 18%;
+    width: auto;
+    height: 600px;
+    text-align: justify;
 }

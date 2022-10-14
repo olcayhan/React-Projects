@@ -106,7 +106,7 @@ export default function TodoList({ user }) {
                             })
                             : <span></span>
                     }
-                    
+
                 </div>
             </div>
             <div className='fixed-bottom d-flex flex-row' id='todo--footer'>

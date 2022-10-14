@@ -6,11 +6,13 @@ import AuthScreen from "./Screens/AuthScreen";
 import SignUpScreen from "./Screens/SignUpScreen";
 import { useState } from "react";
 import TodoList from "./Screens/TodoList";
+import Important from "./Screens/Important";
 
 
 export default function App() {
 
-  const [user, setUser] = useState(null)
+  const [user, setUser] = useState(null);
+  const [todosApp, setTodosApp] = useState();
   return (
 
     <Router>
@@ -22,6 +24,7 @@ export default function App() {
             <Route path="/signin" element={<AuthScreen setUser={setUser} />} />
             <Route path="/signup" element={<SignUpScreen />} />
             <Route path="/home" element={<TodoList user={user} />} />
+            <Route path="/important" element={<Important/>} />
 
           </Routes>
         </Container>

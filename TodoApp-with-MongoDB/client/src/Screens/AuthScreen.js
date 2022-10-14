@@ -12,7 +12,7 @@ export default function AuthScreen({ setUser }) {
     })
     return (
 
-        <Container>
+        <Container className="authscreen">
             <Row className='justify-content-center'>
                 <Col xs={12} md={6}>
                     <Form onSubmit={(e) => {

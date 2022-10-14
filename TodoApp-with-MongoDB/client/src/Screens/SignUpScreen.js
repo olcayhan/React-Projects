@@ -30,7 +30,7 @@ export default function SignUpScreen() {
     }, [formData])
 
     return (
-        <Container>
+        <div className='signup-screen'>
             <Row className='justify-content-center'>
                 <Col xs={12} md={6}>
                     <Form onSubmit={(e) => {
@@ -81,6 +81,6 @@ export default function SignUpScreen() {
                     </Form>
                 </Col>
             </Row>
-        </Container>
+        </div>
     )
 }
