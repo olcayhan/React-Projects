@@ -7,7 +7,6 @@ import Todo from '../components/Todo';
 
 export default function Important() {
   const [todos, setTodos] = useState([])
-
   useEffect(() => {
 
     getTodo()
@@ -18,10 +17,15 @@ export default function Important() {
 
   }, [0])
 
-  console.log(todos);
+  let importants = todos.filter((todos) =>
+    todos.important === true
+  )
+
+console.log(importants);
+
   return (
     <div className='important-main'>
-      {todos.length !== 0 ? todos.map(todo => {
+      {importants.length !== 0 ? todos.map(todo => {
         return !todo.complete && todo.important ?
           <Todo todo={todo} /> : <span></span>
       }) : <StartImport />}

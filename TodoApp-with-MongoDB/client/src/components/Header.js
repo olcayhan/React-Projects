@@ -24,8 +24,6 @@ export default function Header({ user, setUser }) {
           <p>{user}</p>
         </div> : <span></span>}
 
-      <hr />
-
       <a href="/home" className='header-home-section' style={user !== null ? { visibility: "visible" } : { visibility: "hidden" }}>
         <i className="fa-regular fa-sun"></i>
         <span style={{ marginLeft: "10px", fontWeight: "100" }}>Tasks</span>
@@ -36,7 +34,6 @@ export default function Header({ user, setUser }) {
         <i className="fa-regular fa-star"></i>
         <span style={{ marginLeft: "10px", fontWeight: "100" }}>Important</span>
       </a>
-      <hr />
 
       {
         user ?
@@ -51,7 +48,7 @@ export default function Header({ user, setUser }) {
           <button
             className='header-button' >
             <Link className='text-white text-decoration-none' to="/signin">
-              Sign Up
+              Sign In
             </Link>
           </button>
       }
