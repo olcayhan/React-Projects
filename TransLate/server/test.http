@@ -1,0 +1,54 @@
+POST http://localhost:5000/cards/addcard
+Content-Type: application/json
+
+{
+    "name":"harke",
+    "desc":"al"
+}
+
+###
+
+GET http://localhost:5000/cards/getcard
+Content-Type: application/json
+
+{
+    
+}
+
+###
+
+POST  http://localhost:5000/cards/deletecard
+Content-Type: application/json
+
+{
+    "id" : "63851b96b784e809f1cc445c"
+}
+###
+
+POST http://localhost:5000/words/addword
+Content-Type: application/json
+
+{
+    "english":"old",
+    "turkish":"eski",
+    "cardID": "6383d4250cc6be75f6bb0ae7"
+}
+
+###
+
+GET http://localhost:5000/words/getword
+Content-Type: application/json
+
+{
+    
+}
+
+###
+
+POST  http://localhost:5000/words/deleteword
+Content-Type: application/json
+
+{
+    "id" : "63850b8521ba3a4a9b12e79a"
+}
+###

@@ -1,8 +1,10 @@
 const express = require('express')
-
 const dotenv = require("dotenv")
 const mongoose = require("mongoose")
 const cors = require("cors")
+const CardRouter = require("./router/CardRouter.js");
+const WordRouter = require("./router/WordRouter.js");
+
 
 dotenv.config()
 
@@ -11,7 +13,8 @@ const app = express()
 
 app.use(cors())
 app.use(express.json())
-// app.use("/users", userRouter)
+app.use("/cards", CardRouter);
+app.use("/words", WordRouter);
 
 // connection to the database
 app.listen(5000, () => {
@@ -24,5 +27,5 @@ app.listen(5000, () => {
 })
 
 app.get("/", (req, res) => {
-    res.send("This site for backend my todolist app")
+    res.send("This site for backend my translate app")
 })

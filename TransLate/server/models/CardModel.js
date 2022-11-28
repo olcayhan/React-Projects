@@ -1,6 +1,7 @@
 const { default: mongoose } = require("mongoose");
 
 
+
 const cardSchema = mongoose.Schema({
 
     name: {
@@ -10,6 +11,8 @@ const cardSchema = mongoose.Schema({
     desc: {
         type: String,
         required: true
-    },
-})
+    }
+}, { collection: "cards" })
 module.exports = mongoose.model("Card", cardSchema)
+
+
